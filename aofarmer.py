@@ -10,5 +10,5 @@ st.write("# Albion Online Farmer! 👨‍🌾")
 
 item = api_url + 'history/T4_BAG.json?locations=Caerleon&qualities=1&time-scale=1'
 r = requests.get(item)
-price = pd.DataFrame(r.json())
+price = pd.DataFrame(r.json()['data'])
 st.write(price)
