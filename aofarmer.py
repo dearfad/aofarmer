@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 import requests
 
 st.set_page_config(page_title='Albion Online Farmer', page_icon='👨‍🌾', layout="wide")
