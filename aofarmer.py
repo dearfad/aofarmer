@@ -12,6 +12,12 @@ qualities = st.radio('qualities',('1','2','3','4','5'),horizontal=True)
 
 t = st.radio('T',('T1','T2','T3','T4','T5','T6','T7','T8'),horizontal=True)
 
+type = {
+    '附件': ['背包','披风'],
+}
+
+cat = st.selectbox('cat',('附件'))
+
 name = st.text_input('Name', value="_MAIN_NATURESTAFF")
 
 item = api_url + 'prices/' + t + '_' + name + '.json?locations=Caerleon,Thetford,Fort Sterling,Lymhurst,Bridgewatch,Martlock&qualities=' + qualities
