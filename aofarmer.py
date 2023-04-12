@@ -19,6 +19,8 @@ type = {
 
 cat = st.selectbox('cat',('附件','护甲'))
 
+aa = st.selectbox('aa',type[cat])
+
 name = st.text_input('Name', value="_MAIN_NATURESTAFF")
 
 item = api_url + 'prices/' + t + '_' + name + '.json?locations=Caerleon,Thetford,Fort Sterling,Lymhurst,Bridgewatch,Martlock&qualities=' + qualities
