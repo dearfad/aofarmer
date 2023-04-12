@@ -43,3 +43,8 @@ r = requests.get(item)
 price = pd.DataFrame(r.json())
 
 st.write(price)
+
+hour = 'history/' + t + '_' + chn[aa] + '.json?time-scale=1'
+x = requests.get(x)
+xp = pd.DataFrame(x.json())
+st.write(xp)
