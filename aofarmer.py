@@ -12,7 +12,7 @@ qualities = st.radio('qualities',('1','2','3','4','5'),horizontal=True)
 
 t = st.radio('T',('T1','T2','T3','T4','T5','T6','T7','T8'),horizontal=True)
 
-name  = '_MAIN_NATURESTAFF'
+name = st.text_input('Name', value="_MAIN_NATURESTAFF", max_chars=None, key=None, type="default", help=None, autocomplete=None, on_change=None, args=None, kwargs=None, *, placeholder=None, disabled=False, label_visibility="visible")
 
 item = api_url + 'prices/' + t + name + '.json?locations=Caerleon,Thetford,Fort Sterling,Lymhurst,Bridgewatch,Martlock&qualities=' + qualities
 
