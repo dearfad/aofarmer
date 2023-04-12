@@ -12,7 +12,7 @@ qualities = st.radio('qualities',('1','2','3','4','5'),horizontal=True)
 
 t = st.radio('T',('T1','T2','T3','T4','T5','T6','T7','T8'))
 
-item = api_url + 'prices/' + t + '_BAG.json?locations=Caerleon,Bridgewatch&qualities=' + qualities
+item = api_url + 'prices/' + t + '_BAG.json?locations=Caerleon,Thetford,Fort,Sterling,Lymhurst,Bridgewatch,Martlock&qualities=' + qualities
 
 r = requests.get(item)
 
