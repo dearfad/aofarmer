@@ -8,7 +8,9 @@ api_url = "https://east.albion-online-data.com/api/v2/stats/"
 
 st.write("# Albion Online Farmer! 👨‍🌾")
 
-item = api_url + 'prices/T4_BAG,T5_BAG.json?locations=Caerleon,Bridgewatch&qualities=2'
+qualities = st.selectbox('qualities',(1,2,3,4,5))
+
+item = api_url + 'prices/T4_BAG,T5_BAG.json?locations=Caerleon,Bridgewatch&qualities=' + qualities
 
 r = requests.get(item)
 
