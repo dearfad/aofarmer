@@ -45,6 +45,6 @@ price = pd.DataFrame(r.json())
 st.write(price)
 
 hour = api_url + 'history/' + t + '_' + chn[aa] + '.json?time-scale=1'
-x = requests.get(x)
+x = requests.get(hour)
 xp = pd.DataFrame(x.json())
 st.write(xp)
