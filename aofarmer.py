@@ -15,7 +15,7 @@ t = st.radio('T',('T1','T2','T3','T4','T5','T6','T7','T8'),horizontal=True)
 type = {
     '附件': ['背包','披风'],
     '护甲': ['布帽','布甲','布鞋'],
-    '自然资源': ['木材','石头','纤维']
+    '自然资源': ['木材','石头','纤维','矿石']
 }
 
 cat = st.selectbox('cat',type.keys())
@@ -31,6 +31,7 @@ chn = {
     '木材': 'WOOD',
     '石头': 'ROCK',
     '纤维': 'FIBER',
+    '矿石': 'ORE',
 }
 
 item = api_url + 'prices/' + t + '_' + chn[aa] + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + qualities
