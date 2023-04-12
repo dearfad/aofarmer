@@ -21,9 +21,15 @@ cat = st.selectbox('cat',('附件','护甲'))
 
 aa = st.selectbox('aa',type[cat])
 
-name = st.text_input('Name', value="_MAIN_NATURESTAFF")
+chn = {
+    '背包': 'BAG',
+    '披风': 'CAPE',
+    '布帽': 'HEAD_CLOTH_SET1',
+    '布甲': 'ARMOR_CLOTH_SET1',
+    '布鞋': 'SHOES_CLOTH_SET1',
+}
 
-item = api_url + 'prices/' + t + '_' + name + '.json?locations=Caerleon,Thetford,Fort Sterling,Lymhurst,Bridgewatch,Martlock&qualities=' + qualities
+item = api_url + 'prices/' + t + '_' + chn[aa] + '.json?locations=Caerleon,Thetford,Fort Sterling,Lymhurst,Bridgewatch,Martlock&qualities=' + qualities
 
 r = requests.get(item)
 
