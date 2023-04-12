@@ -18,7 +18,7 @@ type = {
     '自然资源': ['木材','石头','纤维']
 }
 
-cat = st.selectbox('cat',('附件','护甲'))
+cat = st.selectbox('cat',type.keys())
 
 aa = st.selectbox('aa',type[cat])
 
