@@ -14,9 +14,10 @@ t = st.radio('T',('T1','T2','T3','T4','T5','T6','T7','T8'),horizontal=True)
 
 type = {
     '附件': ['背包','披风'],
+    '护甲': ['布帽','布甲','布鞋']
 }
 
-cat = st.selectbox('cat',('附件'))
+cat = st.selectbox('cat',('附件','护甲'))
 
 name = st.text_input('Name', value="_MAIN_NATURESTAFF")
 
