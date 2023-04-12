@@ -12,6 +12,6 @@ item = api_url + '/api/v2/stats/prices/T4_BAG,T5_BAG.json?locations=Caerleon,Bri
 
 r = requests.get(item)
 
-price = r.json()
+# price = r.json()
 
-st.write(price)
+st.write(r)
