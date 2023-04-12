@@ -15,7 +15,8 @@ t = st.radio('T',('T1','T2','T3','T4','T5','T6','T7','T8'),horizontal=True)
 type = {
     '附件': ['背包','披风'],
     '护甲': ['布帽','布甲','布鞋'],
-    '自然资源': ['木材','石头','纤维','矿石','木条','金属条']
+    '自然资源': ['木材','石头','纤维','矿石','木条','金属条'],
+    '法术武器': ['自然法杖','奥术法杖']，
 }
 
 cat = st.selectbox('cat',type.keys())
@@ -34,6 +35,8 @@ chn = {
     '矿石': 'ORE',
     '木条': 'PLANKS',
     '金属条': 'METALBAR',
+    '自然法杖': 'MAIN_NATURESTAFF',
+    '奥术法杖': 'MAIN_ARCANESTAFF',
 }
 
 item = api_url + 'prices/' + t + '_' + chn[aa] + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + qualities
