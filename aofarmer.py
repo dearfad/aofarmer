@@ -12,6 +12,8 @@ qualities = st.radio('qualities',('1','2','3','4','5'),horizontal=True)
 
 t = st.radio('T',('T1','T2','T3','T4','T5','T6','T7','T8'),horizontal=True)
 
+level = st.radio('level',('0','1','2','3','4'),horizontal=True)
+
 type = {
     '附件': ['背包','披风'],
     '护甲': ['布帽','布甲','布鞋'],
@@ -38,8 +40,10 @@ chn = {
     '自然法杖': 'MAIN_NATURESTAFF',
     '奥术法杖': 'MAIN_ARCANESTAFF',
 }
-
-item = api_url + 'prices/' + t + '_' + chn[aa] + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + qualities
+ll = '@' + level 
+if ll=='@0':
+    ll = ''
+item = api_url + 'prices/' + t + '_' + chn[aa] + ll + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + qualities
 
 r = requests.get(item)
 
