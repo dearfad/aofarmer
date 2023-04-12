@@ -8,12 +8,12 @@ api_url = "https://east.albion-online-data.com/api/v2/stats/"
 
 st.write("# Albion Online Farmer! 👨‍🌾")
 
-qualities = st.radio('qualities',('1','2','3','4','5'))
+qualities = st.radio('qualities',('1','2','3','4','5'),horizontal=True)
 
 item = api_url + 'prices/T4_BAG,T5_BAG.json?locations=Caerleon,Bridgewatch&qualities=' + qualities
 
 r = requests.get(item)
 
-price = r.json()
+price = pd.DataFrame(r.json())
 
 st.write(price)
