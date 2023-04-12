@@ -29,7 +29,7 @@ chn = {
     '布鞋': 'SHOES_CLOTH_SET1',
 }
 
-item = api_url + 'prices/' + t + '_' + chn[aa] + '.json?locations=Caerleon,Thetford,Fort Sterling,Lymhurst,Bridgewatch,Martlock&qualities=' + qualities
+item = api_url + 'prices/' + t + '_' + chn[aa] + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + qualities
 
 r = requests.get(item)
 
