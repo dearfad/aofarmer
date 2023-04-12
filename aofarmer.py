@@ -48,5 +48,5 @@ hour = api_url + 'history/' + t + '_' + chn[aa] + '.json?time-scale=1'
 x = requests.get(hour)
 xp = pd.DataFrame(x.json())
 
-my = list(xp[xp.location=='Caerleon']['data'])
+my = pd.DataFrame(xp[xp.location=='Caerleon']['data'])
 st.write(my)
