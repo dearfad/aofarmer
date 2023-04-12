@@ -49,4 +49,4 @@ x = requests.get(hour)
 xp = pd.DataFrame(x.json())
 
 my = xp[xp.location=='Caerleon']
-st.write(xp)
+st.write(my)
