@@ -55,5 +55,5 @@ hour = api_url + 'history/' + t + '_' + chn[aa] + ll + '.json?time-scale=1'
 x = requests.get(hour)
 xp = pd.DataFrame(x.json())
 
-my = pd.DataFrame(xp.loc[xp['location']=='Bridgewatch','data'].values[0])
+my = pd.DataFrame(xp.loc[xp['location']=='Caerleon','data'].values[0])
 st.write(my)
