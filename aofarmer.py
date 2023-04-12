@@ -47,4 +47,6 @@ st.write(price)
 hour = api_url + 'history/' + t + '_' + chn[aa] + '.json?time-scale=1'
 x = requests.get(hour)
 xp = pd.DataFrame(x.json())
+
+my = xp[xp.location='Caerleon']
 st.write(xp)
