@@ -56,10 +56,9 @@ with col_quality:
 with col_item:
     item = st.selectbox('物品', category_dict[category])
 
+item_id = tier + '_' + id_dict[item] + quality
 
-
-
-# aa = st.selectbox('aa',category[category])
+st.write(item_id)
 
 # ll = '@' + level 
 # if ll=='@0':
