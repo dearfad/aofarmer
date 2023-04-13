@@ -51,7 +51,7 @@ with col_enchantment:
     enchantment = st.selectbox('附魔', ('0','1','2','3','4'))
 
 with col_quality:
-    quality = st.selectbox('品质', ('1','2','3','4','5'))
+    quality = '@' + st.selectbox('品质', ('1','2','3','4','5'))
 
 with col_item:
     item = st.selectbox('物品', category_dict[category])
