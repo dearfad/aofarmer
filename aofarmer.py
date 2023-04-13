@@ -56,11 +56,11 @@ with col_quality:
 with col_item:
     item = st.selectbox('物品', category_dict[category])
 
-item_id = tier + '_' + id_dict[item] + quality
+item_id = tier + '_' + id_dict[item] + enchantment
 
 st.write(item_id)
 
-search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + qualities
+search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
 
 r = requests.get(search_url)
 
