@@ -6,26 +6,14 @@ st.set_page_config(page_title='Albion Online Farmer', page_icon='👨‍🌾', l
 
 api_url = "https://east.albion-online-data.com/api/v2/stats/"
 
-st.write("# Albion Online Farmer! 👨‍🌾")
-
-qualities = st.radio('qualities',('1','2','3','4','5'),horizontal=True)
-
-t = st.radio('T',('T1','T2','T3','T4','T5','T6','T7','T8'),horizontal=True)
-
-level = st.radio('level',('0','1','2','3','4'),horizontal=True)
-
-type = {
+category_ = {
     '附件': ['背包','披风'],
     '护甲': ['布帽','布甲','布鞋'],
     '自然资源': ['木材','石头','纤维','矿石','木条','金属条'],
     '法术武器': ['自然法杖','奥术法杖'],
 }
 
-cat = st.selectbox('cat',type.keys())
-
-aa = st.selectbox('aa',type[cat])
-
-chn = {
+id_dict = {
     '背包': 'BAG',
     '披风': 'CAPE',
     '布帽': 'HEAD_CLOTH_SET1',
@@ -40,20 +28,38 @@ chn = {
     '自然法杖': 'MAIN_NATURESTAFF',
     '奥术法杖': 'MAIN_ARCANESTAFF',
 }
-ll = '@' + level 
-if ll=='@0':
-    ll = ''
-item = api_url + 'prices/' + t + '_' + chn[aa] + ll + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + qualities
 
-r = requests.get(item)
+st.write("# Albion Online Farmer! 👨‍🌾")
 
-price = pd.DataFrame(r.json())
+col_category, col2, col3 = st.columns(3)
 
-st.write(price)
+with col_category:
+    category = st.selectbox('类别',category_dict.keys())
 
-hour = api_url + 'history/' + t + '_' + chn[aa] + ll + '.json?time-scale=1'
-x = requests.get(hour)
-xp = pd.DataFrame(x.json())
+# qualities = st.radio('qualities',('1','2','3','4','5'),horizontal=True)
 
-my = pd.DataFrame(xp.loc[xp['location']=='Caerleon','data'].values[0])
-st.write(my)
+# t = st.radio('T',('T1','T2','T3','T4','T5','T6','T7','T8'),horizontal=True)
+
+# level = st.radio('level',('0','1','2','3','4'),horizontal=True)
+
+
+
+# aa = st.selectbox('aa',category[category])
+
+# ll = '@' + level 
+# if ll=='@0':
+#     ll = ''
+# item = api_url + 'prices/' + t + '_' + chn[aa] + ll + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + qualities
+
+# r = requests.get(item)
+
+# price = pd.DataFrame(r.json())
+
+# st.write(price)
+
+# hour = api_url + 'history/' + t + '_' + chn[aa] + ll + '.json?time-scale=1'
+# x = requests.get(hour)
+# xp = pd.DataFrame(x.json())
+
+# my = pd.DataFrame(xp.loc[xp['location']=='Caerleon','data'].values[0])
+# st.write(my)
