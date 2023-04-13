@@ -56,7 +56,8 @@ with col_quality:
 with col_item:
     item = st.selectbox('物品', category_dict[category])
 
-item_id = tier + '_' + id_dict[item] + '@' + enchantment
+level = '_LEVEL' + enchantment + '@' + enchantment if enchantment != 0 else ''
+item_id = tier + '_' + id_dict[item] + level
 
 st.write(item_id)
 
