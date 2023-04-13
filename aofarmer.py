@@ -6,7 +6,7 @@ st.set_page_config(page_title='Albion Online Farmer', page_icon='👨‍🌾', l
 
 api_url = "https://east.albion-online-data.com/api/v2/stats/"
 
-category_ = {
+category_dict = {
     '附件': ['背包','披风'],
     '护甲': ['布帽','布甲','布鞋'],
     '自然资源': ['木材','石头','纤维','矿石','木条','金属条'],
@@ -34,7 +34,7 @@ st.write("# Albion Online Farmer! 👨‍🌾")
 col_category, col2, col3 = st.columns(3)
 
 with col_category:
-    category = st.selectbox('类别',category_dict.keys())
+    category = st.selectbox('类别', category_dict.keys())
 
 # qualities = st.radio('qualities',('1','2','3','4','5'),horizontal=True)
 
