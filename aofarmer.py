@@ -45,13 +45,13 @@ with col_category:
     category = st.selectbox('类别', category_dict.keys())
 
 with col_tier:
-    tier = st.radio('等阶',('T1','T2','T3','T4','T5','T6','T7','T8'),horizontal=True)
+    tier = st.selectbox('等阶', ('T1','T2','T3','T4','T5','T6','T7','T8'))
 
 with col_enchantment:
-    enchantment = st.radio('附魔',('0','1','2','3','4'), horizontal=True)
+    enchantment = st.selectbox('附魔', ('0','1','2','3','4'))
 
 with col_quality:
-    quality = st.radio('品质',('1','2','3','4','5'), horizontal=True)
+    quality = st.selectbox('品质', ('1','2','3','4','5'))
 
 
 
