@@ -63,17 +63,11 @@ st.write(item_id)
 
 search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
 
-st.write(search_url)
-
 r = requests.get(search_url)
 
 price = pd.DataFrame(r.json())
 
 st.write(price)
-
-# ll = '@' + level 
-# if ll=='@0':
-#     ll = ''
 
 # hour = api_url + 'history/' + t + '_' + chn[aa] + ll + '.json?time-scale=1'
 # x = requests.get(hour)
