@@ -39,18 +39,21 @@ id_dict = {
 
 st.write("# Albion Online Farmer! 👨‍🌾")
 
-col_category, col_tier, col3 = st.columns(3)
+col_category, col_tier, col_enchantment, col_quality = st.columns(4)
 
 with col_category:
     category = st.selectbox('类别', category_dict.keys())
 
 with col_tier:
     tier = st.radio('等阶',('T1','T2','T3','T4','T5','T6','T7','T8'),horizontal=True)
-    
-# qualities = st.radio('qualities',('1','2','3','4','5'),horizontal=True)
+
+with col_enchantment:
+    enchantment = st.radio('附魔',('0','1','2','3','4'), horizontal=True)
+
+with col_quality:
+    quality = st.radio('品质',('1','2','3','4','5'), horizontal=True)
 
 
-# level = st.radio('level',('0','1','2','3','4'),horizontal=True)
 
 
 
