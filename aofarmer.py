@@ -106,7 +106,7 @@ with col_item_price:
     r_history_hour = requests.get(history_hour_url)
     history_hour = pd.DataFrame(r_history_hour.json())
 
-    item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Caerleon','data'].values[0])
+    item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Bridgewatch','data'].values[0])
     st.write(item_history_hour)
-    
+
 
