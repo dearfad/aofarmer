@@ -102,10 +102,11 @@ with col_item_price:
     prices = pd.DataFrame(r.json())
     st.write(prices[['city','sell_price_min','buy_price_max']])
 
-    hour = api_url + 'history/' + t + '_' + chn[aa] + ll + '.json?time-scale=1'
-    x = requests.get(hour)
-    xp = pd.DataFrame(x.json())
+    history_hour_url = api_url + 'history/' + item_id + '.json?time-scale=1'
+    r_history_hour = requests.get(history_hour_url)
+    history_hour = pd.DataFrame(r_history_hour.json())
 
-    my = pd.DataFrame(xp.loc[xp['location']=='Caerleon','data'].values[0])
-    st.write(my)
+    item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Caerleon','data'].values[0])
+    st.write(item_history_hour)
+    
 
