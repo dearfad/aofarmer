@@ -85,7 +85,7 @@ with col_item_info:
     st.write(item_id)
     if item_id in items.index.values:
         item_name = items.loc[item_id, 'LocalizedNames']['ZH-CN']
-        item_description = items.loc[item, 'LocalizedDescriptions']['ZH-CN']
+        item_description = items.loc[item_id, 'LocalizedDescriptions']['ZH-CN']
         item_image_url = image_url + item_id + '.png' + '?quality=' + quality
         st.image(item_image_url)
         st.write(item_image_url)
@@ -93,7 +93,7 @@ with col_item_info:
         item_name = '无相关信息'
         item_description = ''
     st.write(item_name)
-    si.write(item_description)
+    st.write(item_description)
 
 with col_item_price:
     search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
