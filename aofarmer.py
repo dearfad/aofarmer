@@ -57,11 +57,12 @@ st.write(items)
 
 input_name = st.text_input('模糊搜索：', '')
 search_result = items[items['UniqueName'].str.contains(input_name.strip(), case=False), 'UniqueName']
-if search_result.empty:
-    st.warning('未找到相关信息...')
-    url_name = ''
-else:    
-    selected_name = st.selectbox('已发现：', search_result['UniqueName'])
+st.write(search_result)
+# if search_result.empty:
+#     st.warning('未找到相关信息...')
+#     url_name = ''
+# else:    
+#     selected_name = st.selectbox('已发现：', search_result['UniqueName'])
 
 col_category, col_item, col_tier, col_enchantment, col_quality = st.columns(5)
 
