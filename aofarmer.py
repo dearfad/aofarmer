@@ -70,8 +70,10 @@ with col_quality:
 
 if category == '基础资源':
     level = '_LEVEL' + enchantment
+    item_id = tier + '_' + id_dict[item] + level + '@' + level
+else:
+    item_id = tier + '_' + id_dict[item]
 
-item_id = tier + '_' + id_dict[item] + level
 
 col_item_info, col_item_price = st.columns(2)
 
