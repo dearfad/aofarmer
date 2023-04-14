@@ -4,6 +4,8 @@ import requests
 
 st.set_page_config(page_title='Albion Online Farmer', page_icon='👨‍🌾', layout="wide")
 
+st.write("# Albion Online Farmer! 👨‍🌾")
+
 api_url = "https://east.albion-online-data.com/api/v2/stats/"
 
 items_url = 'https://raw.githubusercontent.com/ao-data/ao-bin-dumps/master/formatted/items.json'
@@ -49,7 +51,7 @@ def read_items_info():
     return items
 items = read_items_info()
 
-st.write("# Albion Online Farmer! 👨‍🌾")
+st.write(f"*️⃣ **Total: {items.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
 
 col_category, col_item, col_tier, col_enchantment, col_quality = st.columns(5)
 
