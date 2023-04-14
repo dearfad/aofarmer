@@ -58,12 +58,14 @@ with col_enchantment:
 with col_quality:
     quality = st.selectbox('品质', ('1','2','3','4','5'))
 
-if category == '基础资源':
-    level = '_LEVEL' + enchantment + '@' + enchantment if enchantment != '0' else ''
-else:
-    level = '@' + enchantment if enchantment != '0' else ''
+# if category == '基础资源':
+#     level = '_LEVEL' + enchantment + '@' + enchantment if enchantment != '0' else ''
+# else:
+#     level = '@' + enchantment if enchantment != '0' else ''
 
-item_id = tier + '_' + id_dict[item] + level
+# item_id = tier + '_' + id_dict[item] + level
+
+item_id = tier + '_' + id_dict[item]
 
 col_item_info, col_item_price = st.columns(2)
 
@@ -86,10 +88,10 @@ with col_item_info:
     st.write(item_name)
 
 with col_item_price:
-    search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
-    r = requests.get(search_url)
-    price = pd.DataFrame(r.json())
-    st.write(price)
+    # search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
+    # r = requests.get(search_url)
+    # price = pd.DataFrame(r.json())
+    # st.write(price)
 
 # hour = api_url + 'history/' + t + '_' + chn[aa] + ll + '.json?time-scale=1'
 # x = requests.get(hour)
