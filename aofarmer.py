@@ -106,7 +106,14 @@ with col_item_price:
     r_history_hour = requests.get(history_hour_url)
     history_hour = pd.DataFrame(r_history_hour.json())
 
-    item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Bridgewatch','data'].values[0])
-    st.write(item_history_hour.iloc[-9:-1])
+    col_bridgewatch, col_limhurst,col_2,col_3,col_4 = st.columns(5)
+    with col_bridgewatch:
+        item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Bridgewatch','data'].values[0])
+        st.write('Bridgewatch')
+        st.write(item_history_hour.iloc[-9:-1])
+    with col_limhurst:
+        item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='limhurst','data'].values[0])
+        st.write('limhurst')
+        st.write(item_history_hour.iloc[-9:-1])
 
 
