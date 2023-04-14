@@ -9,23 +9,23 @@ api_url = "https://east.albion-online-data.com/api/v2/stats/"
 items_url = 'https://raw.githubusercontent.com/ao-data/ao-bin-dumps/master/formatted/items.json'
 
 category_dict = {
-    '配件': ['背包','披风'],
-    '护甲': ['布帽','布甲','布鞋'],
-    '法术武器': ['奥术法杖', '自然法杖'],
+    # '配件': ['背包','披风'],
+    # '护甲': ['布帽','布甲','布鞋'],
+    # '法术武器': ['奥术法杖', '自然法杖'],
     '基础资源': ['布料', '纤维作物', '兽皮', '皮制品', '金属条', '矿石', '木条', '石材', '石砌块', '木材'],
 }
 
 id_dict = {
 
-    '背包': 'BAG',
-    '披风': 'CAPE',
+    # '背包': 'BAG',
+    # '披风': 'CAPE',
 
-    '布帽': 'HEAD_CLOTH_SET1',
-    '布甲': 'ARMOR_CLOTH_SET1',
-    '布鞋': 'SHOES_CLOTH_SET1',
+    # '布帽': 'HEAD_CLOTH_SET1',
+    # '布甲': 'ARMOR_CLOTH_SET1',
+    # '布鞋': 'SHOES_CLOTH_SET1',
 
-    '自然法杖': 'MAIN_NATURESTAFF',
-    '奥术法杖': 'MAIN_ARCANESTAFF',
+    # '自然法杖': 'MAIN_NATURESTAFF',
+    # '奥术法杖': 'MAIN_ARCANESTAFF',
 
     '布料': 'CLOTH',
     '纤维作物': 'FIBER',
