@@ -88,7 +88,7 @@ with col_item_info:
     st.write(item_name)
 
 with col_item_price:
-    # search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
+    search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
     # r = requests.get(search_url)
     # price = pd.DataFrame(r.json())
     # st.write(price)
