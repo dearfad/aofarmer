@@ -41,7 +41,10 @@ id_dict = {
 
 st.write("# Albion Online Farmer! 👨‍🌾")
 
-col_item, col_category, col_tier, col_enchantment, col_quality = st.columns(5)
+col_category, col_item, col_tier, col_enchantment, col_quality = st.columns(5)
+
+with col_item:
+    item = st.selectbox('物品', category_dict[category])
 
 with col_category:
     category = st.selectbox('类别', category_dict.keys())
@@ -54,9 +57,6 @@ with col_enchantment:
 
 with col_quality:
     quality = st.selectbox('品质', ('1','2','3','4','5'))
-
-with col_item:
-    item = st.selectbox('物品', category_dict[category])
 
 level = '_LEVEL' + enchantment + '@' + enchantment if enchantment != '0' else ''
 item_id = tier + '_' + id_dict[item] + level
