@@ -43,11 +43,11 @@ st.write("# Albion Online Farmer! 👨‍🌾")
 
 col_category, col_item, col_tier, col_enchantment, col_quality = st.columns(5)
 
-with col_item:
-    item = st.selectbox('物品', category_dict[category])
-
 with col_category:
     category = st.selectbox('类别', category_dict.keys())
+
+with col_item:
+    item = st.selectbox('物品', category_dict[category])
 
 with col_tier:
     tier = st.selectbox('等阶', ('T1','T2','T3','T4','T5','T6','T7','T8'))
