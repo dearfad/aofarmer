@@ -69,7 +69,7 @@ def read_items_info():
     items = pd.read_json(items_url)
     items.set_index('UniqueName', inplace=True)
     return items
-
+st.write(items)
 items = read_items_info()
 
 if item_id in items.index.values:
