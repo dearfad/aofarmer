@@ -62,33 +62,34 @@ if category == '基础资源':
     level = '_LEVEL' + enchantment + '@' + enchantment if enchantment != '0' else ''
 else:
     level = '@' + enchantment if enchantment != '0' else ''
-    
+
 item_id = tier + '_' + id_dict[item] + level
-item_image_url = 'https://render.albiononline.com/v1/item/' + item_id + '.png' + '?quality=' + quality
-st.image(item_image_url)
-st.write(item_image_url)
+
+col_item_info, col_item_price = st.columns(2)
 
 @st.cache_data
 def read_items_info():
     items = pd.read_json(items_url)
     items.set_index('UniqueName', inplace=True)
     return items
-items = read_items_info()
-st.write(items)
 
-if item_id in items.index.values:
-    item_name = items.loc[item_id, 'LocalizedNames']['ZH-CN']
-else:
-    item_name = '无相关信息'
-st.write(item_name)
+with col_item_info:
+    item_image_url = 'https://render.albiononline.com/v1/item/' + item_id + '.png' + '?quality=' + quality
+    st.image(item_image_url)
+    st.write(item_image_url)
+    items = read_items_info()
+    st.write(items)
+    if item_id in items.index.values:
+        item_name = items.loc[item_id, 'LocalizedNames']['ZH-CN']
+    else:
+        item_name = '无相关信息'
+    st.write(item_name)
 
-search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
-
-r = requests.get(search_url)
-
-price = pd.DataFrame(r.json())
-
-st.write(price)
+with col_item_price:
+    search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
+    r = requests.get(search_url)
+    price = pd.DataFrame(r.json())
+    st.write(price)
 
 # hour = api_url + 'history/' + t + '_' + chn[aa] + ll + '.json?time-scale=1'
 # x = requests.get(hour)
