@@ -69,8 +69,8 @@ def read_items_info():
     items = pd.read_json(items_url)
     items.set_index('UniqueName', inplace=True)
     return items
-st.write(items)
 items = read_items_info()
+st.write(items)
 
 if item_id in items.index.values:
     item_name = items.loc[item_id, 'LocalizedNames']['ZH-CN']
