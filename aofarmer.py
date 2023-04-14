@@ -72,13 +72,13 @@ def read_items_info():
     return items
 
 with col_item_info:
-    item_image_url = 'https://render.albiononline.com/v1/item/' + item_id + '@' + enchantment + '.png' + '?quality=' + quality
-    st.image(item_image_url)
-    st.write(item_image_url)
-    items = read_items_info()
-    st.write(items)
     if item_id in items.index.values:
         item_name = items.loc[item_id, 'LocalizedNames']['ZH-CN']
+        item_image_url = 'https://render.albiononline.com/v1/item/' + item_id + '@' + enchantment + '.png' + '?quality=' + quality
+        st.image(item_image_url)
+        st.write(item_image_url)
+        items = read_items_info()
+        st.write(items)
     else:
         item_name = '无相关信息'
     st.write(item_name)
