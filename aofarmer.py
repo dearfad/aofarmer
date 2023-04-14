@@ -62,6 +62,7 @@ level = '_LEVEL' + enchantment + '@' + enchantment if enchantment != '0' else ''
 item_id = tier + '_' + id_dict[item] + level
 item_image_url = 'https://render.albiononline.com/v1/item/' + item_id + '.png' + '?quality=' + quality
 st.image(item_image_url)
+st.write(item_image_url)
 
 @st.cache_data
 def read_items_info():
