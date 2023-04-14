@@ -115,5 +115,9 @@ with col_item_price:
         item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Lymhurst','data'].values[0])
         st.write('Lymhurst')
         st.write(item_history_hour.iloc[-9:-1])
+    with col_limhurst:
+        item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Fort Sterling','data'].values[0])
+        st.write('Fort Sterling')
+        st.write(item_history_hour.iloc[-9:-1])
 
 
