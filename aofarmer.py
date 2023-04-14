@@ -112,8 +112,8 @@ with col_item_price:
         st.write('Bridgewatch')
         st.write(item_history_hour.iloc[-9:-1])
     with col_limhurst:
-        item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Limhurst','data'].values[0])
-        st.write('Limhurst')
+        item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Lymhurst','data'].values[0])
+        st.write('Lymhurst')
         st.write(item_history_hour.iloc[-9:-1])
 
 
