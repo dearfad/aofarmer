@@ -6,6 +6,8 @@ st.set_page_config(page_title='Albion Online Farmer', page_icon='👨‍🌾', l
 
 api_url = "https://east.albion-online-data.com/api/v2/stats/"
 
+items_url = 'https://github.com/ao-data/ao-bin-dumps/blob/master/formatted/items.json'
+
 category_dict = {
     '配件': ['背包','披风'],
     '护甲': ['布帽','布甲','布鞋'],
@@ -75,3 +77,6 @@ st.write(price)
 
 # my = pd.DataFrame(xp.loc[xp['location']=='Caerleon','data'].values[0])
 # st.write(my)
+
+items = pd.read_json(items_url)
+st.write(items)
