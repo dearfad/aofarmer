@@ -82,7 +82,6 @@ col_item_info, col_item_price = st.columns([1,3])
 
 
 with col_item_info:
-    st.write('UniqueName', item_id)
     if item_id in items.index.values:
         item_name = items.loc[item_id, 'LocalizedNames']['ZH-CN']
         item_description = items.loc[item_id, 'LocalizedDescriptions']['ZH-CN']
@@ -95,6 +94,7 @@ with col_item_info:
         item_description = ''
     st.header(item_name)
     st.write(item_description)
+    st.write('UniqueName: ', item_id)
 
 with col_item_price:
     search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
