@@ -77,7 +77,7 @@ if category == '基础资源':
 else:
     item_id = tier + '_' + id_dict[item]
 
-col_item_info, col_item_price = st.columns(2)
+col_item_info, col_item_price = st.columns(1,3)
 
 
 
@@ -94,7 +94,7 @@ with col_item_info:
         st.image(item_image_url)
         item_name = '此物并不存在'
         item_description = ''
-    st.write(item_name)
+    st.header(item_name)
     st.write(item_description)
 
 with col_item_price:
