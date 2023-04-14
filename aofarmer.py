@@ -85,4 +85,6 @@ def read_items_info():
     return items
 
 items = read_items_info()
-st.write(items)
+
+item_name = items.loc[item_id, 'LocalizedNames']
+st.write(item_name)
