@@ -69,7 +69,10 @@ def read_items_info():
 
 items = read_items_info()
 
-item_name = items.loc[item_id, 'LocalizedNames']['ZH-CN']
+if item_id in items.index.values:
+    item_name = items.loc[item_id, 'LocalizedNames']['ZH-CN']
+else:
+    item_name = '无相关信息'
 st.write(item_name)
 
 search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
