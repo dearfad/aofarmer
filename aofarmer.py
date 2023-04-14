@@ -99,9 +99,9 @@ with col_item_info:
 
 with col_item_price:
     search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
-    # r = requests.get(search_url)
-    # price = pd.DataFrame(r.json())
-    # st.write(price)
+    r = requests.get(search_url)
+    price = pd.DataFrame(r.json())
+    st.write(price)
 
 # hour = api_url + 'history/' + t + '_' + chn[aa] + ll + '.json?time-scale=1'
 # x = requests.get(hour)
