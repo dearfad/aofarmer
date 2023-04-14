@@ -99,8 +99,9 @@ with col_item_info:
 with col_item_price:
     search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
     r = requests.get(search_url)
-    price = pd.DataFrame(r.json())
-    st.markdown('**:red[Caerleon]**: ')
+    prices = pd.DataFrame(r.json())
+    prices.set_index('city', inplace=True)
+    st.markdown('**:red[Caerleon]**: ', prices.loc['Caerleon', 'sell_price_min'])
     st.markdown('**:orange[Bridgewatch]**: ')
     st.markdown('**:green[Lymhurst]**: ')
     st.markdown('**:blue[Fort Sterling]**: ')
