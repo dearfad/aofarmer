@@ -56,8 +56,7 @@ st.write(f"*️⃣ **Total: {items.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** �
 st.write(items)
 
 input_name = st.text_input('模糊搜索：', 'ORE')
-search_result = items.index.values
-# .str.contains(input_name.strip(), case=False)
+search_result = items[items.index.str.contains(input_name.strip(), case=False)]
 st.write(search_result)
 
 # if search_result.empty:
