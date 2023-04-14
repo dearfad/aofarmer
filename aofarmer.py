@@ -108,7 +108,7 @@ with col_item_price:
     st.markdown('**:blue[Fort Sterling]**: ')
     st.markdown('**:violet[Thetford]**: ')
     st.markdown('**Martlock**: ')
-    st.write(prices)
+    st.write(prices[['city','sell_price_min','buy_price_max']])
 
 # hour = api_url + 'history/' + t + '_' + chn[aa] + ll + '.json?time-scale=1'
 # x = requests.get(hour)
