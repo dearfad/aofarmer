@@ -90,7 +90,9 @@ with col_item_info:
         st.image(item_image_url)
         st.write(item_image_url)
     else:
-        item_name = '无相关信息'
+        item_image_url = 'https://render.albiononline.com/v1/destiny/ADVENTURER_ADEPT.png'
+        st.image(item_image_url)
+        item_name = '此物并不存在'
         item_description = ''
     st.write(item_name)
     st.write(item_description)
