@@ -102,10 +102,10 @@ with col_item_price:
     price = pd.DataFrame(r.json())
     st.markdown('**:red[Caerleon]**: ')
     st.markdown('**:orange[Bridgewatch]**: ')
-    st.markdown('**:red[Caerleon]**: ')
-    st.markdown('**:red[Caerleon]**: ')
-    st.markdown('**:red[Caerleon]**: ')
-    st.markdown('**:red[Caerleon]**: ')
+    st.markdown('**:green[Lymhurst]**: ')
+    st.markdown('**:blue[Fort Sterling]**: ')
+    st.markdown('**:violet[Thetford]**: ')
+    st.markdown('**Martlock**: ')
     st.write(price)
 
 # hour = api_url + 'history/' + t + '_' + chn[aa] + ll + '.json?time-scale=1'
