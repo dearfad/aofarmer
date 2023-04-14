@@ -107,6 +107,6 @@ with col_item_price:
     history_hour = pd.DataFrame(r_history_hour.json())
 
     item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Bridgewatch','data'].values[0])
-    st.write(item_history_hour.iloc[-10:-1])
+    st.write(item_history_hour.iloc[-13:-1])
 
 
