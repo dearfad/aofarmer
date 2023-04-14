@@ -74,7 +74,7 @@ def read_items_info():
     return items
 
 with col_item_info:
-    item_image_url = 'https://render.albiononline.com/v1/item/' + item_id + '.png' + '?quality=' + quality
+    item_image_url = 'https://render.albiononline.com/v1/item/' + item_id + '@' + enchantment + '.png' + '?quality=' + quality
     st.image(item_image_url)
     st.write(item_image_url)
     items = read_items_info()
