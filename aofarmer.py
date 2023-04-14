@@ -58,14 +58,10 @@ with col_enchantment:
 with col_quality:
     quality = st.selectbox('品质', ('1','2','3','4','5'))
 
-# if category == '基础资源':
-#     level = '_LEVEL' + enchantment + '@' + enchantment if enchantment != '0' else ''
-# else:
-#     level = '@' + enchantment if enchantment != '0' else ''
+if category == '基础资源':
+    level = '_LEVEL' + enchantment
 
-# item_id = tier + '_' + id_dict[item] + level
-
-item_id = tier + '_' + id_dict[item]
+item_id = tier + '_' + id_dict[item] + level
 
 col_item_info, col_item_price = st.columns(2)
 
