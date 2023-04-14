@@ -86,5 +86,5 @@ def read_items_info():
 
 items = read_items_info()
 
-item_name = items.loc[item_id, 'LocalizedNames']
+item_name = items.loc[item_id, 'LocalizedNames']['ZH-CN']
 st.write(item_name)
