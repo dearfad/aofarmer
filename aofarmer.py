@@ -56,7 +56,7 @@ st.write(f"*️⃣ **Total: {items.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** �
 st.write(items)
 
 input_name = st.text_input('模糊搜索：', '')
-search_result = items[items['UniqueName'].str.contains(input_name.strip(), case=False), 'UniqueName']
+search_result = items['UniqueName'][items['UniqueName'].str.contains(input_name.strip(), case=False), 'UniqueName']
 st.write(search_result)
 # if search_result.empty:
 #     st.warning('未找到相关信息...')
