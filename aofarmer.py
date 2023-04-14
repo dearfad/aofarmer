@@ -77,7 +77,7 @@ if category == '基础资源':
 else:
     item_id = tier + '_' + id_dict[item]
 
-col_item_info, col_item_price = st.columns(1,3)
+col_item_info, col_item_price = st.columns([1,3])
 
 
 
