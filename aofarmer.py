@@ -85,7 +85,7 @@ with col_item_info:
     st.write(item_id)
     if item_id in items.index.values:
         item_name = items.loc[item_id, 'LocalizedNames']['ZH-CN']
-        item_image_url = image_url + item_id + '@' + enchantment + '.png' + '?quality=' + quality
+        item_image_url = image_url + item_id + '.png' + '?quality=' + quality
         st.image(item_image_url)
         st.write(item_image_url)
         st.write(items)
