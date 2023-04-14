@@ -61,7 +61,16 @@ with col_item:
 level = '_LEVEL' + enchantment + '@' + enchantment if enchantment != '0' else ''
 item_id = tier + '_' + id_dict[item] + level
 
-st.write(item_id)
+@st.cache_data
+def read_items_info():
+    items = pd.read_json(items_url)
+    items.set_index('UniqueName', inplace=True)
+    return items
+
+items = read_items_info()
+
+item_name = items.loc[item_id, 'LocalizedNames']['ZH-CN']
+st.write(item_name)
 
 search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
 
@@ -78,13 +87,3 @@ st.write(price)
 # my = pd.DataFrame(xp.loc[xp['location']=='Caerleon','data'].values[0])
 # st.write(my)
 
-@st.cache_data
-def read_items_info():
-    items = pd.read_json(items_url)
-    items.set_index('UniqueName', inplace=True)
-    return items
-
-items = read_items_info()
-
-item_name = items.loc[item_id, 'LocalizedNames']['ZH-CN']
-st.write(item_name)
