@@ -100,14 +100,14 @@ with col_item_price:
     search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
     r = requests.get(search_url)
     prices = pd.DataFrame(r.json())
-    prices.set_index('city', inplace=True)
-    st.markdown('**:red[Caerleon]**:')
-    st.write(prices.loc['Caerleon', 'sell_price_min'], '--', prices.loc['Caerleon', 'buy_price_max'])
-    st.markdown('**:orange[Bridgewatch]**: ')
-    st.markdown('**:green[Lymhurst]**: ')
-    st.markdown('**:blue[Fort Sterling]**: ')
-    st.markdown('**:violet[Thetford]**: ')
-    st.markdown('**Martlock**: ')
+    # prices.set_index('city', inplace=True)
+    # st.markdown('**:red[Caerleon]**:')
+    # st.write(prices.loc['Caerleon', 'sell_price_min'], '--', prices.loc['Caerleon', 'buy_price_max'])
+    # st.markdown('**:orange[Bridgewatch]**: ')
+    # st.markdown('**:green[Lymhurst]**: ')
+    # st.markdown('**:blue[Fort Sterling]**: ')
+    # st.markdown('**:violet[Thetford]**: ')
+    # st.markdown('**Martlock**: ')
     st.write(prices[['city','sell_price_min','buy_price_max']])
 
 # hour = api_url + 'history/' + t + '_' + chn[aa] + ll + '.json?time-scale=1'
