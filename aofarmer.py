@@ -97,7 +97,7 @@ with col_item_info:
     st.write('UniqueName: ', item_id)
 
 with col_item_price:
-    st.markdown(red[test])
+    st.markdown('red[test]')
     search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
     r = requests.get(search_url)
     price = pd.DataFrame(r.json())
