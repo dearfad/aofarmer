@@ -60,10 +60,10 @@ with col_eng:
     input_name_en = st.text_input('英文模糊搜索：', 'ORE')
     search_result_en = items[items.index.str.contains(input_name_en.strip(), case=False)]
     st.write(search_result_en.index)
-with col_chn:
-    input_name_chn = st.text_input('中文模糊搜索：', '矿石')
-    search_result_chn = items[items.index.str.contains(input_name_chn.strip(), case=False)]
-    st.write(search_result_chn['UniqueName'])
+# with col_chn:
+#     input_name_chn = st.text_input('中文模糊搜索：', '矿石')
+#     search_result_chn = items[items.index.str.contains(input_name_chn.strip(), case=False)]
+#     st.write(search_result_chn['UniqueName'])
 
 # if search_result.empty:
 #     st.warning('未找到相关信息...')
