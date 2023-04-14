@@ -58,7 +58,11 @@ with col_enchantment:
 with col_quality:
     quality = st.selectbox('品质', ('1','2','3','4','5'))
 
-level = '_LEVEL' + enchantment + '@' + enchantment if enchantment != '0' else ''
+if category == '基础资源':
+    level = '_LEVEL' + enchantment + '@' + enchantment if enchantment != '0' else ''
+else:
+    level = '@' + enchantment if enchantment != '0' else ''
+    
 item_id = tier + '_' + id_dict[item] + level
 item_image_url = 'https://render.albiononline.com/v1/item/' + item_id + '.png' + '?quality=' + quality
 st.image(item_image_url)
