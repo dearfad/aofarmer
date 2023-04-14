@@ -74,12 +74,12 @@ if category == '基础资源':
 else:
     item_id = tier + '_' + id_dict[item]
 
-
 col_item_info, col_item_price = st.columns(2)
 
 
 
 with col_item_info:
+    st.write(item_id)
     if item_id in items.index.values:
         item_name = items.loc[item_id, 'LocalizedNames']['ZH-CN']
         item_image_url = image_url + item_id + '@' + enchantment + '.png' + '?quality=' + quality
