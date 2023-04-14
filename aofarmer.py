@@ -78,7 +78,7 @@ st.write(price)
 # my = pd.DataFrame(xp.loc[xp['location']=='Caerleon','data'].values[0])
 # st.write(my)
 
-@st.cache_resource
+@st.cache_data
 def read_items_info():
     items = pd.read_json(items_url)
     items.set_index('UniqueName', inplace=True)
