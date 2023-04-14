@@ -82,13 +82,12 @@ col_item_info, col_item_price = st.columns([1,3])
 
 
 with col_item_info:
-    st.write(item_id)
+    st.write('UniqueName', item_id)
     if item_id in items.index.values:
         item_name = items.loc[item_id, 'LocalizedNames']['ZH-CN']
         item_description = items.loc[item_id, 'LocalizedDescriptions']['ZH-CN']
         item_image_url = image_url + item_id + '.png' + '?quality=' + quality
         st.image(item_image_url)
-        st.write(item_image_url)
     else:
         item_image_url = 'https://render.albiononline.com/v1/destiny/ADVENTURER_ADEPT.png'
         st.image(item_image_url)
