@@ -26,8 +26,6 @@ item_ids = read_items_info()
 
 st.write(f"*️⃣ **Total: {item_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
 
-st.write(item_ids)
-
 col_eng, col_chn = st.columns(2)
 
 with col_eng:
@@ -35,7 +33,7 @@ with col_eng:
 
 with col_chn:
     search_result = item_ids[item_ids['UniqueName'].str.contains(input_name.strip(), case=False) | item_ids['Name'].str.contains(input_name.strip(), case=False)]
-    st.selectbox('结果', search_result['UniqueName'])
+    st.selectbox('结果', search_result['UniqueName']+search_result['Name'])
 
 
 # category_dict = {
