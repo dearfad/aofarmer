@@ -39,7 +39,8 @@ col_item_info, col_item_price = st.columns([1,3])
 
 with col_item_info:
     name, uniquename, description = selected_item.split(' ')
-    item_image_url = image_url + item_id + '.png' + '?quality=' + quality
+    # item_image_url = image_url + item_id + '.png' + '?quality=' + quality
+    item_image_url = image_url + uniquename + '.png'
     st.image(item_image_url)
     st.header(name)
     st.write(description)
