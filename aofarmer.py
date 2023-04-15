@@ -28,12 +28,11 @@ st.write(f"*️⃣ **Total: {item_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD*
 
 st.write(item_ids)
 
-
-# col_eng, col_chn = st.columns(2)
-# with col_eng:
-#     input_name_en = st.text_input('英文模糊搜索：', 'ORE')
-#     search_result_en = items[items.index.str.contains(input_name_en.strip(), case=False)]
-#     st.write(search_result_en.index)
+col_eng, col_chn = st.columns(2)
+with col_eng:
+    input_name_en = st.text_input('英文模糊搜索：', 'ORE')
+    search_result_en = items_ids[items['UniqueName'].str.contains(input_name_en.strip(), case=False)]
+    st.write(search_result_en)
 
 # category_dict = {
 #     '配件': ['背包','披风'],
