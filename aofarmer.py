@@ -15,19 +15,19 @@ image_url = 'https://render.albiononline.com/v1/item/'
 
 # @st.cache_data
 def read_items_info():
-    ao_bin_dumps_df = pd.read_json(item_ids_url)
-    st.write(ao_bin_dumps_df)
-    item_ids_df = pd.DataFrame()
-    item_ids_df['UniqueName'] = ao_bin_dumps_df['UniqueName']
-    item_ids_df['Name'] = ao_bin_dumps_df['LocalizedNames'].apply(lambda x:x["ZH-CN"] if x else '')
-    item_ids_df['Description'] = ao_bin_dumps_df['LocalizedDescriptions'].apply(lambda x:x["ZH-CN"] if x else '')
-    return item_ids_df
+    ao_bin_dumps = pd.read_json(item_ids_url)
+    item_ids = pd.DataFrame()
+    item_ids['UniqueName'] = ao_bin_dumps['UniqueName']
+    item_ids['Name'] = ao_bin_dumps['LocalizedNames'].apply(lambda x:x["ZH-CN"] if x else '')
+    item_ids['Description'] = ao_bin_dumps['LocalizedDescriptions'].apply(lambda x:x["ZH-CN"] if x else '')
+    return item_ids
 
-item_ids_df = read_items_info()
+item_ids = read_items_info()
 
-st.write(f"*️⃣ **Total: {item_ids_df.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
+st.write(f"*️⃣ **Total: {item_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
 
-st.write(item_ids_df)
+st.write(item_ids)
+
 
 # col_eng, col_chn = st.columns(2)
 # with col_eng:
