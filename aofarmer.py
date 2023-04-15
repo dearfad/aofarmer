@@ -40,6 +40,10 @@ with col_chn:
     search_result_chn = item_ids[item_ids['Name'].str.contains(input_name_chn.strip(), case=False)]
     st.write(search_result_chn)
 
+a = item_ids[item_ids['UniqueName'].str.contains(input_name_en.strip(), case=False) | item_ids['Name'].str.contains(input_name_chn.strip(), case=False) ]
+
+st.write(a)
+
 # category_dict = {
 #     '配件': ['背包','披风'],
 #     '护甲': ['布帽','布甲','布鞋'],
