@@ -33,7 +33,7 @@ with col_eng:
 
 with col_chn:
     search_result = item_ids[item_ids['UniqueName'].str.contains(input_name.strip(), case=False) | item_ids['Name'].str.contains(input_name.strip(), case=False)]
-    st.selectbox('结果', search_result['UniqueName']+search_result['Name'])
+    st.selectbox(search_result['Name'] + ' ' + search_result['UniqueName'])
 
 
 # category_dict = {
