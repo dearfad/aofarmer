@@ -31,18 +31,12 @@ st.write(item_ids)
 col_eng, col_chn = st.columns(2)
 
 with col_eng:
-    input_name_en = st.text_input('英文模糊搜索：', 'ORE')
-    search_result_en = item_ids[item_ids['UniqueName'].str.contains(input_name_en.strip(), case=False)]
-    st.write(search_result_en)
+    input_name = st.text_input('模糊搜索：', 'ORE')
 
 with col_chn:
-    input_name_chn = st.text_input('中文模糊搜索：', '矿石')
-    search_result_chn = item_ids[item_ids['Name'].str.contains(input_name_chn.strip(), case=False)]
-    st.write(search_result_chn)
+    search_result = item_ids[item_ids['UniqueName'].str.contains(input_name.strip(), case=False) | item_ids['Name'].str.contains(input_name.strip(), case=False)]
+    st.selectbox('结果', search_result['UniqueName'])
 
-a = item_ids[item_ids['UniqueName'].str.contains(input_name_en.strip(), case=False) | item_ids['Name'].str.contains(input_name_en.strip(), case=False) ]
-
-st.write(a)
 
 # category_dict = {
 #     '配件': ['背包','披风'],
