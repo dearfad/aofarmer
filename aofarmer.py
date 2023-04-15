@@ -33,12 +33,12 @@ with col_search:
 
 with col_result:
     search_result = item_ids[item_ids['UniqueName'].str.contains(input_name.strip(), case=False) | item_ids['Name'].str.contains(input_name.strip(), case=False)]
-    selected_item = st.selectbox('搜索结果：', search_result['Name'] + ' ' + search_result['UniqueName'] + ' ' + search_result['Description'])
+    selected_item = st.selectbox('搜索结果：', search_result['Name'] + '===' + search_result['UniqueName'] + '===' + search_result['Description'])
 
 col_item_info, col_item_price = st.columns([1,3])
 
 with col_item_info:
-    name, uniquename, description = selected_item.split(' ')
+    name, uniquename, description = selected_item.split('===')
     # item_image_url = image_url + item_id + '.png' + '?quality=' + quality
     item_image_url = image_url + uniquename + '.png'
     st.image(item_image_url)
