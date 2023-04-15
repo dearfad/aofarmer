@@ -18,7 +18,7 @@ def read_items_info():
     ao_bin_dumps_df = pd.read_json(item_ids_url)
     item_ids_df = pd.DataFrame()
     item_ids_df['UniqueName'] = ao_bin_dumps_df['UniqueName']
-    item_ids_df['Name'] = ao_bin_dumps_df.loc[:,'LocalizedNames']['ZH-CN']
+    item_ids_df['Name'] = ao_bin_dumps_df['LocalizedNames']
     item_ids_df['Description'] = ao_bin_dumps_df['LocalizedDescriptions']
     return items_ids_df
 
