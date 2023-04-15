@@ -19,7 +19,7 @@ def read_items_info():
     st.write(ao_bin_dumps_df)
     item_ids_df = pd.DataFrame()
     item_ids_df['UniqueName'] = ao_bin_dumps_df['UniqueName']
-    item_ids_df['Name'] = ao_bin_dumps_df['LocalizedNames'].values['ZH-CN']
+    item_ids_df['Name'] = ao_bin_dumps_df['LocalizedNames'].values
     item_ids_df['Description'] = ao_bin_dumps_df['LocalizedDescriptions']
     return item_ids_df
 
