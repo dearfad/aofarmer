@@ -13,7 +13,7 @@ item_ids_url = 'https://raw.githubusercontent.com/ao-data/ao-bin-dumps/master/fo
 image_url = 'https://render.albiononline.com/v1/item/'
 
 
-@st.cache_data
+# @st.cache_data
 def read_items_info():
     ao_bin_dumps_df = pd.read_json(item_ids_url)
     st.write(ao_bin_dumps_df)
