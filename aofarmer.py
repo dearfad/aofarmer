@@ -38,7 +38,7 @@ with col_result:
 col_item_info, col_item_price = st.columns([1,3])
 
 with col_item_info:
-    uniquename, name, description = selected_item.split(' ')
+    name, uniquename, description = selected_item.split(' ')
     
     # if item_id in items.index.values:
     #     item_name = items.loc[item_id, 'LocalizedNames']['ZH-CN']
