@@ -8,21 +8,25 @@ st.write("# Albion Online Farmer! 👨‍🌾")
 
 api_url = "https://east.albion-online-data.com/api/v2/stats/"
 
-items_url = 'https://raw.githubusercontent.com/ao-data/ao-bin-dumps/master/formatted/items.json'
+item_ids_url = 'https://raw.githubusercontent.com/ao-data/ao-bin-dumps/master/formatted/items.json'
 
 image_url = 'https://render.albiononline.com/v1/item/'
 
 
 @st.cache_data
 def read_items_info():
-    items = pd.read_json(items_url)
-    # items.set_index('UniqueName', inplace=True)
-    return items
-items = read_items_info()
+    ao_bin_dumps_df = pd.read_json(items_ids_url)
+    item_ids_df = pd.DataFrame()
+    item_ids_df['UniqueName'] = ao_bin_dumps_df['UniqueName']
+    item_ids_df['Name'] = ao_bin_dumps_df['LocalizedNames']['ZH-CN']
+    item_ids_df['Description'] = ao_bin_dumps_df['LocalizedDescriptions']['ZH-CN']
+    return items_ids_df
 
-st.write(f"*️⃣ **Total: {items.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
+items_ids_df = read_items_info()
 
-st.write(items)
+st.write(f"*️⃣ **Total: {items_ids_df.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
+
+st.write(items_ids_df)
 
 # col_eng, col_chn = st.columns(2)
 # with col_eng:
