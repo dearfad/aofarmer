@@ -12,42 +12,11 @@ items_url = 'https://raw.githubusercontent.com/ao-data/ao-bin-dumps/master/forma
 
 image_url = 'https://render.albiononline.com/v1/item/'
 
-category_dict = {
-    '配件': ['背包','披风'],
-    '护甲': ['布帽','布甲','布鞋'],
-    '法术武器': ['奥术法杖', '自然法杖'],
-    '基础资源': ['布料', '纤维作物', '兽皮', '皮制品', '金属条', '矿石', '木条', '石材', '石砌块', '木材'],
-}
-
-id_dict = {
-
-    '背包': 'BAG',
-    '披风': 'CAPE',
-
-    '布帽': 'HEAD_CLOTH_SET1',
-    '布甲': 'ARMOR_CLOTH_SET1',
-    '布鞋': 'SHOES_CLOTH_SET1',
-
-    '自然法杖': 'MAIN_NATURESTAFF',
-    '奥术法杖': 'MAIN_ARCANESTAFF',
-
-    # ==== 基础资源 ====
-    '布料': 'CLOTH',
-    '纤维作物': 'FIBER',
-    '兽皮': 'LEATHER',
-    '皮制品': 'HIDE',
-    '金属条': 'METALBAR',
-    '矿石': 'ORE',
-    '木条': 'PLANKS',
-    '石材': 'ROCK',
-    '石砌块': 'STONEBLOCK',
-    '木材': 'WOOD',
-}
 
 @st.cache_data
 def read_items_info():
     items = pd.read_json(items_url)
-    items.set_index('UniqueName', inplace=True)
+    # items.set_index('UniqueName', inplace=True)
     return items
 items = read_items_info()
 
@@ -55,11 +24,43 @@ st.write(f"*️⃣ **Total: {items.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** �
 
 st.write(items)
 
-col_eng, col_chn = st.columns(2)
-with col_eng:
-    input_name_en = st.text_input('英文模糊搜索：', 'ORE')
-    search_result_en = items[items.index.str.contains(input_name_en.strip(), case=False)]
-    st.write(search_result_en.index)
+# col_eng, col_chn = st.columns(2)
+# with col_eng:
+#     input_name_en = st.text_input('英文模糊搜索：', 'ORE')
+#     search_result_en = items[items.index.str.contains(input_name_en.strip(), case=False)]
+#     st.write(search_result_en.index)
+
+# category_dict = {
+#     '配件': ['背包','披风'],
+#     '护甲': ['布帽','布甲','布鞋'],
+#     '法术武器': ['奥术法杖', '自然法杖'],
+#     '基础资源': ['布料', '纤维作物', '兽皮', '皮制品', '金属条', '矿石', '木条', '石材', '石砌块', '木材'],
+# }
+
+# id_dict = {
+
+#     '背包': 'BAG',
+#     '披风': 'CAPE',
+
+#     '布帽': 'HEAD_CLOTH_SET1',
+#     '布甲': 'ARMOR_CLOTH_SET1',
+#     '布鞋': 'SHOES_CLOTH_SET1',
+
+#     '自然法杖': 'MAIN_NATURESTAFF',
+#     '奥术法杖': 'MAIN_ARCANESTAFF',
+
+#     # ==== 基础资源 ====
+#     '布料': 'CLOTH',
+#     '纤维作物': 'FIBER',
+#     '兽皮': 'LEATHER',
+#     '皮制品': 'HIDE',
+#     '金属条': 'METALBAR',
+#     '矿石': 'ORE',
+#     '木条': 'PLANKS',
+#     '石材': 'ROCK',
+#     '石砌块': 'STONEBLOCK',
+#     '木材': 'WOOD',
+# }
 # with col_chn:
 #     input_name_chn = st.text_input('中文模糊搜索：', '矿石')
 #     search_result_chn = items[items.index.str.contains(input_name_chn.strip(), case=False)]
