@@ -52,7 +52,7 @@ with col_item_info:
     #     item_description = ''
     st.header(name)
     st.write(description)
-    st.write(UniqueName)
+    st.write(uniquename)
 
 # with col_item_price:
 #     search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
