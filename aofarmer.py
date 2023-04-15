@@ -26,14 +26,70 @@ item_ids = read_items_info()
 
 st.write(f"*️⃣ **Total: {item_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
 
-col_eng, col_chn = st.columns(2)
+col_search, col_result = st.columns(2)
 
-with col_eng:
+with col_search:
     input_name = st.text_input('模糊搜索：', 'ORE')
 
-with col_chn:
+with col_result:
     search_result = item_ids[item_ids['UniqueName'].str.contains(input_name.strip(), case=False) | item_ids['Name'].str.contains(input_name.strip(), case=False)]
-    st.selectbox('搜索结果：', search_result['Name'] + ' ' + search_result['UniqueName'])
+    selected_item = st.selectbox('搜索结果：', search_result['Name'] + ' ' + search_result['UniqueName'] + search_result['Description'])
+
+col_item_info, col_item_price = st.columns([1,3])
+
+with col_item_info:
+    st.write(selected_item)
+    # if item_id in items.index.values:
+    #     item_name = items.loc[item_id, 'LocalizedNames']['ZH-CN']
+    #     item_description = items.loc[item_id, 'LocalizedDescriptions']['ZH-CN']
+    #     item_image_url = image_url + item_id + '.png' + '?quality=' + quality
+    #     st.image(item_image_url)
+    # else:
+    #     item_image_url = 'https://render.albiononline.com/v1/destiny/ADVENTURER_ADEPT.png'
+    #     st.image(item_image_url)
+    #     item_name = '此物并不存在'
+    #     item_description = ''
+    # st.header(item_name)
+    # st.write(item_description)
+    # st.write('UniqueName: ', item_id)
+
+# with col_item_price:
+#     search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
+#     r = requests.get(search_url)
+#     prices = pd.DataFrame(r.json())
+#     st.write(prices[['city','sell_price_min','buy_price_max']])
+
+#     history_hour_url = api_url + 'history/' + item_id + '.json?time-scale=1'
+#     r_history_hour = requests.get(history_hour_url)
+#     history_hour = pd.DataFrame(r_history_hour.json())
+
+#     col_bridgewatch, col_limhurst,col_FortSterling,col_Thetford,col_Martlock,col_Caerleon = st.columns(6)
+#     with col_bridgewatch:
+#         item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Bridgewatch','data'].values[0])
+#         st.write('Bridgewatch')
+#         st.write(item_history_hour.iloc[-9:-1,:2])
+#     with col_limhurst:
+#         item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Lymhurst','data'].values[0])
+#         st.write('Lymhurst')
+#         st.write(item_history_hour.iloc[-9:-1,:2])
+#     with col_FortSterling:
+#         item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Fort Sterling','data'].values[0])
+#         st.write('Fort Sterling')
+#         st.write(item_history_hour.iloc[-9:-1,:2])
+#     with col_Thetford:
+#         item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Thetford','data'].values[0])
+#         st.write('Thetford')
+#         st.write(item_history_hour.iloc[-9:-1,:2])
+#     with col_Martlock:
+#         item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Martlock','data'].values[0])
+#         st.write('Martlock')
+#         st.write(item_history_hour.iloc[-9:-1,:2])
+#     with col_Caerleon:
+#         item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Caerleon','data'].values[0])
+#         st.write('Caerleon')
+#         st.write(item_history_hour.iloc[-9:-1,:2])
+
+
 
 
 # category_dict = {
@@ -101,58 +157,7 @@ with col_chn:
 # else:
 #     item_id = tier + '_' + id_dict[item]
 
-# col_item_info, col_item_price = st.columns([1,3])
 
 
 
-# with col_item_info:
-#     if item_id in items.index.values:
-#         item_name = items.loc[item_id, 'LocalizedNames']['ZH-CN']
-#         item_description = items.loc[item_id, 'LocalizedDescriptions']['ZH-CN']
-#         item_image_url = image_url + item_id + '.png' + '?quality=' + quality
-#         st.image(item_image_url)
-#     else:
-#         item_image_url = 'https://render.albiononline.com/v1/destiny/ADVENTURER_ADEPT.png'
-#         st.image(item_image_url)
-#         item_name = '此物并不存在'
-#         item_description = ''
-#     st.header(item_name)
-#     st.write(item_description)
-#     st.write('UniqueName: ', item_id)
-
-# with col_item_price:
-#     search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
-#     r = requests.get(search_url)
-#     prices = pd.DataFrame(r.json())
-#     st.write(prices[['city','sell_price_min','buy_price_max']])
-
-#     history_hour_url = api_url + 'history/' + item_id + '.json?time-scale=1'
-#     r_history_hour = requests.get(history_hour_url)
-#     history_hour = pd.DataFrame(r_history_hour.json())
-
-#     col_bridgewatch, col_limhurst,col_FortSterling,col_Thetford,col_Martlock,col_Caerleon = st.columns(6)
-#     with col_bridgewatch:
-#         item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Bridgewatch','data'].values[0])
-#         st.write('Bridgewatch')
-#         st.write(item_history_hour.iloc[-9:-1,:2])
-#     with col_limhurst:
-#         item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Lymhurst','data'].values[0])
-#         st.write('Lymhurst')
-#         st.write(item_history_hour.iloc[-9:-1,:2])
-#     with col_FortSterling:
-#         item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Fort Sterling','data'].values[0])
-#         st.write('Fort Sterling')
-#         st.write(item_history_hour.iloc[-9:-1,:2])
-#     with col_Thetford:
-#         item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Thetford','data'].values[0])
-#         st.write('Thetford')
-#         st.write(item_history_hour.iloc[-9:-1,:2])
-#     with col_Martlock:
-#         item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Martlock','data'].values[0])
-#         st.write('Martlock')
-#         st.write(item_history_hour.iloc[-9:-1,:2])
-#     with col_Caerleon:
-#         item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Caerleon','data'].values[0])
-#         st.write('Caerleon')
-#         st.write(item_history_hour.iloc[-9:-1,:2])
 
