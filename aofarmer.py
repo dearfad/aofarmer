@@ -31,7 +31,7 @@ st.write(item_ids)
 col_eng, col_chn = st.columns(2)
 with col_eng:
     input_name_en = st.text_input('英文模糊搜索：', 'ORE')
-    search_result_en = items_ids[items['UniqueName'].str.contains(input_name_en.strip(), case=False)]
+    search_result_en = item_ids[item_ids['UniqueName'].str.contains(input_name_en.strip(), case=False)]
     st.write(search_result_en)
 
 # category_dict = {
