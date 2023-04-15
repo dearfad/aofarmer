@@ -37,7 +37,7 @@ with col_eng:
 
 with col_chn:
     input_name_chn = st.text_input('中文模糊搜索：', '矿石')
-    search_result_chn = item_ids[items_ids['Name'].str.contains(input_name_chn.strip(), case=False)]
+    search_result_chn = item_ids[item_ids['Name'].str.contains(input_name_chn.strip(), case=False)]
     st.write(search_result_chn)
 
 # category_dict = {
