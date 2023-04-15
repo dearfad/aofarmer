@@ -26,7 +26,7 @@ item_ids = read_items_info()
 
 st.write(f"*️⃣ **Total: {item_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
 
-col_search, col_result = st.columns(2)
+col_search, col_result, col_quality = st.columns([1,4,1])
 
 with col_search:
     input_name = st.text_input('模糊搜索：', 'ORE')
@@ -35,22 +35,24 @@ with col_result:
     search_result = item_ids[item_ids['UniqueName'].str.contains(input_name.strip(), case=False) | item_ids['Name'].str.contains(input_name.strip(), case=False)]
     selected_item = st.selectbox('搜索结果：', search_result['Name'] + ' = ' + search_result['UniqueName'] + ' = ' + search_result['Description'])
 
+with col_quality:
+    quality = st.selectbox('品质', ('1','2','3','4','5'))
+
 col_item_info, col_item_price = st.columns([1,2])
 
 with col_item_info:
     name, uniquename, description = selected_item.split(' = ')
-    # item_image_url = image_url + item_id + '.png' + '?quality=' + quality
-    item_image_url = image_url + uniquename + '.png'
+    item_image_url = image_url + uniquename + '.png' + '?quality=' + quality
     st.image(item_image_url)
     st.header(name)
     st.write(description)
     st.write(uniquename)
 
-# with col_item_price:
-#     search_url = api_url + 'prices/' + item_id + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
-#     r = requests.get(search_url)
-#     prices = pd.DataFrame(r.json())
-#     st.write(prices[['city','sell_price_min','buy_price_max']])
+with col_item_price:
+    search_url = api_url + 'prices/' + uniquename + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
+    r = requests.get(search_url)
+    prices = pd.DataFrame(r.json())
+    st.write(prices[['city','sell_price_min','buy_price_max']])
 
 #     history_hour_url = api_url + 'history/' + item_id + '.json?time-scale=1'
 #     r_history_hour = requests.get(history_hour_url)
