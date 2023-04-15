@@ -39,17 +39,8 @@ col_item_info, col_item_price = st.columns([1,3])
 
 with col_item_info:
     name, uniquename, description = selected_item.split(' ')
-    
-    # if item_id in items.index.values:
-    #     item_name = items.loc[item_id, 'LocalizedNames']['ZH-CN']
-    #     item_description = items.loc[item_id, 'LocalizedDescriptions']['ZH-CN']
-    #     item_image_url = image_url + item_id + '.png' + '?quality=' + quality
-    #     st.image(item_image_url)
-    # else:
-    #     item_image_url = 'https://render.albiononline.com/v1/destiny/ADVENTURER_ADEPT.png'
-    #     st.image(item_image_url)
-    #     item_name = '此物并不存在'
-    #     item_description = ''
+    item_image_url = image_url + item_id + '.png' + '?quality=' + quality
+    st.image(item_image_url)
     st.header(name)
     st.write(description)
     st.write(uniquename)
