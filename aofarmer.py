@@ -16,6 +16,7 @@ image_url = 'https://render.albiononline.com/v1/item/'
 @st.cache_data
 def read_items_info():
     ao_bin_dumps_df = pd.read_json(item_ids_url)
+    st.write(ao_bin_dumps_df)
     item_ids_df = pd.DataFrame()
     item_ids_df['UniqueName'] = ao_bin_dumps_df['UniqueName']
     item_ids_df['Name'] = ao_bin_dumps_df['LocalizedNames'].apply(lambda x:x['ZH-CN'])
@@ -26,6 +27,7 @@ item_ids_df = read_items_info()
 
 st.write(f"*️⃣ **Total: {item_ids_df.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
 
+st.write(item_ids_df)
 st.write(item_ids_df)
 
 # col_eng, col_chn = st.columns(2)
