@@ -20,7 +20,7 @@ def read_items_info():
     item_ids_df['UniqueName'] = ao_bin_dumps_df['UniqueName']
     item_ids_df['Name'] = ao_bin_dumps_df['LocalizedNames']
     item_ids_df['Description'] = ao_bin_dumps_df['LocalizedDescriptions']
-    return items_ids_df
+    return item_ids_df
 
 item_ids_df = read_items_info()
 
