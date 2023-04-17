@@ -67,13 +67,13 @@ with col_item_price:
     col2.metric("**Bridgewatch**", prices.loc[prices['city']=='Bridgewatch', 'sell_price_min'])
     col2.metric("", prices.loc[prices['city']=='Bridgewatch', 'buy_price_max'])
     col3.metric("**Lymhurst**", prices.loc[prices['city']=='Lymhurst', 'sell_price_min'])
-    col3.metric("**Lymhurst**", prices.loc[prices['city']=='Lymhurst', 'buy_price_max'])
+    col3.metric("", prices.loc[prices['city']=='Lymhurst', 'buy_price_max'])
     col4.metric("**Fort Sterling**", prices.loc[prices['city']=='Fort Sterling', 'sell_price_min'])
-    col4.metric("**Fort Sterling**", prices.loc[prices['city']=='Fort Sterling', 'buy_price_max'])
+    col4.metric("", prices.loc[prices['city']=='Fort Sterling', 'buy_price_max'])
     col5.metric("**Thetford**", prices.loc[prices['city']=='Thetford', 'sell_price_min'])
-    col5.metric("**Thetford**", prices.loc[prices['city']=='Thetford', 'buy_price_max'])
+    col5.metric("", prices.loc[prices['city']=='Thetford', 'buy_price_max'])
     col6.metric("**Martlock**", prices.loc[prices['city']=='Martlock', 'sell_price_min'])
-    col6.metric("**Martlock**", prices.loc[prices['city']=='Martlock', 'buy_price_max'])
+    col6.metric("", prices.loc[prices['city']=='Martlock', 'buy_price_max'])
     # st.write(prices)
 
 #     history_hour_url = api_url + 'history/' + item_id + '.json?time-scale=1'
