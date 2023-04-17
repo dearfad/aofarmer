@@ -58,8 +58,8 @@ with col_item_price:
     search_url = api_url + 'prices/' + uniquename + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
     r = requests.get(search_url)
     prices = pd.DataFrame(r.json())
-    # st.write(prices[['city','sell_price_min','buy_price_max']])
-    st.write(prices)
+    st.write(prices[['city','sell_price_min','sell_price_min_date','buy_price_max','buy_price_max_date']])
+    # st.write(prices)
 
 #     history_hour_url = api_url + 'history/' + item_id + '.json?time-scale=1'
 #     r_history_hour = requests.get(history_hour_url)
