@@ -25,7 +25,7 @@ def read_items_info():
     return item_ids
 
 item_ids = read_items_info()
-st.write(items_ids)
+st.write(item_ids)
 
 # st.write(f"*️⃣ **Total: {item_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
 
