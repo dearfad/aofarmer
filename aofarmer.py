@@ -82,7 +82,7 @@ with col_tier:
     tier = st.selectbox('等阶', ('所有','T1','T2','T3','T4','T5','T6','T7','T8'))
 
 with col_enchantment:
-    enchantment = st.selectbox('附魔', ('0','1','2','3','4'))
+    enchantment = st.selectbox('附魔', ('所有','0','1','2','3','4'))
 
 name, uniquename, description = selected_item.split(' = ')
 
