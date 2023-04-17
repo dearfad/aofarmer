@@ -86,7 +86,7 @@ with col_enchantment:
 
 name, uniquename, description = selected_item.split(' = ')
 
-col_item_info, col_item_price, col_empty = st.columns([1,2,1])
+col_item_info, col_item_price, col_empty = st.columns([1,3,1])
 
 with col_item_info:
     item_image_url = image_url + uniquename + '.png' + '?quality=' + quality
