@@ -64,6 +64,12 @@ with col_item_price:
     with cols_prices[0]:
         st.metric('', 'sell')
         st.metric('', 'buy')
+    cities = ['Caerleon','Bridgewatch','Caerleon','Bridgewatch','Caerleon','Bridgewatch']
+    for i, city in enumerate(cities):
+        with cols_prices[i+1]:
+            st.metric(city, prices.loc[prices['city']==city, 'sell_price_min'])
+            st.metric("", prices.loc[prices['city']==city, 'buy_price_max'])
+
     # col0, col1, col2, col3, col4, col5, col6 = st.columns(7)
     # col0.metric('', 'sell')
     # col0.metric('', 'buy')
