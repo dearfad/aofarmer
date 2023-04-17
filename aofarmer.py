@@ -39,6 +39,31 @@ category_dict = {
     '战利品装饰': [],
 }
 
+id_dict = {
+
+    '背包': 'BAG',
+    '披风': 'CAPE',
+
+    '布帽': 'HEAD_CLOTH_SET1',
+    '布甲': 'ARMOR_CLOTH_SET1',
+    '布鞋': 'SHOES_CLOTH_SET1',
+
+    '自然法杖': 'MAIN_NATURESTAFF',
+    '奥术法杖': 'MAIN_ARCANESTAFF',
+
+    # ==== 基础资源 ====
+    '布料': 'CLOTH',
+    '纤维作物': 'FIBER',
+    '兽皮': 'LEATHER',
+    '皮制品': 'HIDE',
+    '金属条': 'METALBAR',
+    '矿石': 'ORE',
+    '木条': 'PLANKS',
+    '石材': 'ROCK',
+    '石砌块': 'STONEBLOCK',
+    '木材': 'WOOD',
+}
+
 @st.cache_data
 def read_items_info():
     ao_bin_dumps = pd.read_json(item_ids_url)
@@ -83,6 +108,8 @@ with col_tier:
 
 with col_enchantment:
     enchantment = st.selectbox('附魔', ('所有','0','1','2','3','4'))
+
+input_name = item
 
 name, uniquename, description = selected_item.split(' = ')
 
@@ -146,30 +173,7 @@ with col_item_price:
 
 
 
-# id_dict = {
 
-#     '背包': 'BAG',
-#     '披风': 'CAPE',
-
-#     '布帽': 'HEAD_CLOTH_SET1',
-#     '布甲': 'ARMOR_CLOTH_SET1',
-#     '布鞋': 'SHOES_CLOTH_SET1',
-
-#     '自然法杖': 'MAIN_NATURESTAFF',
-#     '奥术法杖': 'MAIN_ARCANESTAFF',
-
-#     # ==== 基础资源 ====
-#     '布料': 'CLOTH',
-#     '纤维作物': 'FIBER',
-#     '兽皮': 'LEATHER',
-#     '皮制品': 'HIDE',
-#     '金属条': 'METALBAR',
-#     '矿石': 'ORE',
-#     '木条': 'PLANKS',
-#     '石材': 'ROCK',
-#     '石砌块': 'STONEBLOCK',
-#     '木材': 'WOOD',
-# }
 
 
 # if search_result.empty:
