@@ -31,7 +31,7 @@ st.write(f"*️⃣ **Total: {item_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD*
 col_search, col_result, col_quality = st.columns([1,4,1])
 
 with col_search:
-    input_name = st.text_input('模糊搜索：', 'ORE')
+    input_name = st.text_input('模糊搜索：', 'BAG')
 
 with col_result:
     search_result = item_ids[item_ids['UniqueName'].str.contains(input_name.strip(), case=False) | item_ids['Name_CN'].str.contains(input_name.strip(), case=False) | item_ids['Name_EN'].str.contains(input_name.strip(), case=False)]
