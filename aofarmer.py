@@ -109,7 +109,7 @@ with col_tier:
 with col_enchantment:
     enchantment = st.selectbox('附魔', ('所有','0','1','2','3','4'))
 
-input_name = item
+input_name.value = item.value
 
 name, uniquename, description = selected_item.split(' = ')
 
