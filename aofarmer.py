@@ -44,7 +44,7 @@ with col_result:
 with col_quality:
     quality = st.selectbox('品质', ('1','2','3','4','5'))
 
-col_item_info, col_item_price = st.columns([1,2])
+col_item_info, col_item_price, col_empty = st.columns([1,2,1])
 
 with col_item_info:
     name, uniquename, description = selected_item.split(' = ')
@@ -67,7 +67,7 @@ with col_item_price:
     cities = ['Caerleon','Bridgewatch','Lymhurst','Fort Sterling','Thetford','Martlock']
     for i, city in enumerate(cities):
         with cols_prices[i+1]:
-            st.metric(f':classical_building:**{city}**', prices.loc[prices['city']==city, 'sell_price_min'])
+            st.metric(f':classical_building: **{city}**', prices.loc[prices['city']==city, 'sell_price_min'])
             st.metric("", prices.loc[prices['city']==city, 'buy_price_max'])
 
     # col0, col1, col2, col3, col4, col5, col6 = st.columns(7)
