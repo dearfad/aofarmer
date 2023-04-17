@@ -60,7 +60,7 @@ with col_item_price:
     prices = pd.DataFrame(r.json())
     # st.write(prices[['city','sell_price_min','sell_price_min_date','buy_price_max','buy_price_max_date']])
     col1, col2, col3, col4, col5, col6 = st.columns(6)
-    col1.metric("**Caerleon**", prices.loc[prices['city']=='Caerleon', 'sell_price_min'], prices.loc[prices['city']=='Caerleon', 'sell_price_min_date'])
+    col1.metric("**Caerleon**", prices.loc[prices['city']=='Caerleon', 'sell_price_min'], str(prices.loc[prices['city']=='Caerleon', 'sell_price_min_date']))
     # col2.metric("**Bridgewatch**", "9 mph", "-8%")
     # col3.metric("**Lymhurst**", "86%", "4%")
     # col4.metric("**Fort Sterling**", "70 °F", "1.2 °F")
