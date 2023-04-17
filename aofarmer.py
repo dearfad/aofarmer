@@ -110,7 +110,7 @@ with col_enchantment:
     enchantment = st.selectbox('附魔', ('所有','0','1','2','3','4'))
 
 with col_x:
-    x = item
+    x = id_dict[item]
     st.write(x)
 
 name, uniquename, description = selected_item.split(' = ')
