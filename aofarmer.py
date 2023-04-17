@@ -64,9 +64,9 @@ with col_item_price:
     for i, city in enumerate(cities):
         with cols_prices[i]:
             sell_min_price = prices.loc[prices['city']==city, 'sell_price_min']
-            st.wrtie(sell_min_price)
+            st.write(sell_min_price)
             buy_max_price =  prices.loc[prices['city']==city, 'buy_price_max']
-            st.wrtie(buy_max_price)
+            st.write(buy_max_price)
             st.metric(f':classical_building: **{city}**', sell_min_price)
 
 #     history_hour_url = api_url + 'history/' + item_id + '.json?time-scale=1'
