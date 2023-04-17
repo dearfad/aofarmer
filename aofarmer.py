@@ -79,7 +79,7 @@ with col_item:
     item = st.selectbox('物品', category_dict[category])
 
 with col_tier:
-    tier = st.selectbox('等阶', ('T1','T2','T3','T4','T5','T6','T7','T8'))
+    tier = st.selectbox('等阶', ('所有','T1','T2','T3','T4','T5','T6','T7','T8'))
 
 with col_enchantment:
     enchantment = st.selectbox('附魔', ('0','1','2','3','4'))
