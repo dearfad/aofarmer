@@ -61,11 +61,11 @@ with col_item_price:
     st.write(prices[['city','sell_price_min','sell_price_min_date','buy_price_max','buy_price_max_date']])
     col1, col2, col3, col4, col5, col6 = st.columns(6)
     col1.metric("**:red[Caerleon]**", prices.loc[prices['city']=='Caerleon', 'sell_price_min'])
-    # col2.metric("**Bridgewatch**", "9 mph", "-8%")
-    # col3.metric("**Lymhurst**", "86%", "4%")
-    # col4.metric("**Fort Sterling**", "70 °F", "1.2 °F")
-    # col5.metric("**Thetford**", "9 mph", "-8%")
-    # col6.metric("**Marlock**", "86%", "4%")
+    col2.metric("**Bridgewatch**", prices.loc[prices['city']=='Bridgewatch', 'sell_price_min'])
+    col3.metric("**Lymhurst**", prices.loc[prices['city']=='Lymhurst', 'sell_price_min'])
+    col4.metric("**Fort Sterling**", prices.loc[prices['city']=='Fort Sterling', 'sell_price_min'])
+    col5.metric("**Thetford**", prices.loc[prices['city']=='Thetford', 'sell_price_min'])
+    col6.metric("**Marlock**", prices.loc[prices['city']=='Marlock', 'sell_price_min'])
     # st.write(prices)
 
 #     history_hour_url = api_url + 'history/' + item_id + '.json?time-scale=1'
