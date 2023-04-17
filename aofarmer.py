@@ -44,10 +44,11 @@ with col_result:
 with col_quality:
     quality = st.selectbox('品质', ('1','2','3','4','5'))
 
+name, uniquename, description = selected_item.split(' = ')
+
 col_item_info, col_item_price, col_empty = st.columns([1,2,2])
 
 with col_item_info:
-    name, uniquename, description = selected_item.split(' = ')
     item_image_url = image_url + uniquename + '.png' + '?quality=' + quality
     st.image(item_image_url)
     st.header(name)
