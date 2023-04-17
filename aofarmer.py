@@ -60,32 +60,12 @@ with col_item_price:
     prices = pd.DataFrame(r.json())
     st.write(prices[['city','sell_price_min','sell_price_min_date','buy_price_max','buy_price_max_date']])
 
-    cols_prices = st.columns(7)
-    with cols_prices[0]:
-        st.metric('', 'sell')
-        st.metric('', 'buy')
     cities = ['Caerleon','Bridgewatch','Lymhurst','Fort Sterling','Thetford','Martlock']
+    cols_prices = st.columns(len(cities))
     for i, city in enumerate(cities):
-        with cols_prices[i+1]:
+        with cols_prices[i]:
             st.metric(f':classical_building: **{city}**', prices.loc[prices['city']==city, 'sell_price_min'])
             st.metric("", prices.loc[prices['city']==city, 'buy_price_max'])
-
-    # col0, col1, col2, col3, col4, col5, col6 = st.columns(7)
-    # col0.metric('', 'sell')
-    # col0.metric('', 'buy')
-    # col1.metric("**:red[Caerleon]**", prices.loc[prices['city']=='Caerleon', 'sell_price_min'])
-    # col1.metric("", prices.loc[prices['city']=='Caerleon', 'buy_price_max'])
-    # col2.metric("**Bridgewatch**", prices.loc[prices['city']=='Bridgewatch', 'sell_price_min'])
-    # col2.metric("", prices.loc[prices['city']=='Bridgewatch', 'buy_price_max'])
-    # col3.metric("**Lymhurst**", prices.loc[prices['city']=='Lymhurst', 'sell_price_min'])
-    # col3.metric("", prices.loc[prices['city']=='Lymhurst', 'buy_price_max'])
-    # col4.metric("**Fort Sterling**", prices.loc[prices['city']=='Fort Sterling', 'sell_price_min'])
-    # col4.metric("", prices.loc[prices['city']=='Fort Sterling', 'buy_price_max'])
-    # col5.metric("**Thetford**", prices.loc[prices['city']=='Thetford', 'sell_price_min'])
-    # col5.metric("", prices.loc[prices['city']=='Thetford', 'buy_price_max'])
-    # col6.metric("**Martlock**", prices.loc[prices['city']=='Martlock', 'sell_price_min'])
-    # col6.metric("", prices.loc[prices['city']=='Martlock', 'buy_price_max'])
-    # st.write(prices)
 
 #     history_hour_url = api_url + 'history/' + item_id + '.json?time-scale=1'
 #     r_history_hour = requests.get(history_hour_url)
