@@ -111,7 +111,14 @@ with col_enchantment:
 
 with col_x:
     x = id_dict[item]
-    st.write(x)
+    t = tier if tier!='所有' else ''
+    s = t + '_' + x
+    st.write(s)
+    s_result = item_ids[item_ids['UniqueName'].str.contains(s.strip(), case=False)]
+    if s_result.empty:
+        s_item = st.selectbox('搜索结果：', ['新手级背包 = T2_BAG = 装备物品'])
+    else:
+        s_item = st.selectbox('搜索结果：', s_result['Name_CN'] + ' = ' + s_result['UniqueName'] + ' = ' + s_result['Description_CN'])
 
 name, uniquename, description = selected_item.split(' = ')
 
