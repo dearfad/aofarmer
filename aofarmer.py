@@ -65,7 +65,7 @@ with col_item_price:
         with cols_prices[i]:
             sell_min_price = int(prices.loc[prices['city']==city, 'sell_price_min'])
             buy_max_price =  int(prices.loc[prices['city']==city, 'buy_price_max'])
-            st.metric(f':classical_building: **{city}**', sell_min_price, sell_min_price-buy_max_price)
+            st.metric(f':classical_building: **{city}**', sell_min_price, buy_max_price-sell_min_price)
 
 #     history_hour_url = api_url + 'history/' + item_id + '.json?time-scale=1'
 #     r_history_hour = requests.get(history_hour_url)
