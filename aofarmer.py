@@ -44,7 +44,7 @@ with col_result:
 with col_quality:
     quality = st.selectbox('品质', ('1','2','3','4','5'))
 
-col_item_info, col_item_price, col_empty = st.columns([1,2,1])
+col_item_info, col_item_price, col_empty = st.columns([1,2,2])
 
 with col_item_info:
     name, uniquename, description = selected_item.split(' = ')
