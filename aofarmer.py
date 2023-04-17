@@ -66,7 +66,7 @@ with col_item_price:
             sell_min_price = int(prices.loc[prices['city']==city, 'sell_price_min'])
             buy_max_price =  int(prices.loc[prices['city']==city, 'buy_price_max'])
             if sell_min_price == 0 or buy_max_price == 0:
-                diff_price = 'xxx'
+                diff_price = None
             else:
                 diff_price = buy_max_price-sell_min_price
             st.metric(f':classical_building: **{city}**', sell_min_price, diff_price)
