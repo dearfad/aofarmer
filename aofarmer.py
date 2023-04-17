@@ -64,7 +64,7 @@ with col_item_price:
     for i, city in enumerate(cities):
         with cols_prices[i]:
             st.metric(f':classical_building: **{city}**', prices.loc[prices['city']==city, 'sell_price_min'])
-            st.metric("===", prices.loc[prices['city']==city, 'buy_price_max'])
+            st.metric("dss", prices.loc[prices['city']==city, 'buy_price_max'])
 
 #     history_hour_url = api_url + 'history/' + item_id + '.json?time-scale=1'
 #     r_history_hour = requests.get(history_hour_url)
