@@ -65,7 +65,7 @@ with col_item_price:
     col3.metric("**Lymhurst**", prices.loc[prices['city']=='Lymhurst', 'sell_price_min'])
     col4.metric("**Fort Sterling**", prices.loc[prices['city']=='Fort Sterling', 'sell_price_min'])
     col5.metric("**Thetford**", prices.loc[prices['city']=='Thetford', 'sell_price_min'])
-    col6.metric("**Marlock**", prices.loc[prices['city']=='Marlock', 'sell_price_min'])
+    col6.metric("**Martlock**", prices.loc[prices['city']=='Martlock', 'sell_price_min'])
     # st.write(prices)
 
 #     history_hour_url = api_url + 'history/' + item_id + '.json?time-scale=1'
