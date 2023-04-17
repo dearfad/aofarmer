@@ -60,12 +60,12 @@ with col_item_price:
     prices = pd.DataFrame(r.json())
     st.write(prices[['city','sell_price_min','sell_price_min_date','buy_price_max','buy_price_max_date']])
     col1, col2, col3, col4, col5, col6 = st.columns(6)
-    col1.metric("Caerleon", "70 °F", "1.2 °F")
-    col2.metric("Bridgewatch", "9 mph", "-8%")
-    col3.metric("Lymhurst", "86%", "4%")
-    col4.metric("Fort Sterling", "70 °F", "1.2 °F")
-    col5.metric("Thetford", "9 mph", "-8%")
-    col6.metric("Marlock", "86%", "4%")
+    col1.metric("**Caerleon**", "70 °F", "1.2 °F")
+    col2.metric("**Bridgewatch**", "9 mph", "-8%")
+    col3.metric("**Lymhurst**", "86%", "4%")
+    col4.metric("**Fort Sterling**", "70 °F", "1.2 °F")
+    col5.metric("**Thetford**", "9 mph", "-8%")
+    col6.metric("**Marlock**", "86%", "4%")
     # st.write(prices)
 
 #     history_hour_url = api_url + 'history/' + item_id + '.json?time-scale=1'
