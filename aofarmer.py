@@ -12,6 +12,12 @@ item_ids_url = 'https://raw.githubusercontent.com/ao-data/ao-bin-dumps/master/fo
 
 image_url = 'https://render.albiononline.com/v1/item/'
 
+category_dict = {
+    '配件': ['背包','披风'],
+    '护甲': ['布帽','布甲','布鞋'],
+    '法术武器': ['奥术法杖', '自然法杖'],
+    '基础资源': ['布料', '纤维作物', '兽皮', '皮制品', '金属条', '矿石', '木条', '石材', '石砌块', '木材'],
+}
 
 @st.cache_data
 def read_items_info():
@@ -43,6 +49,20 @@ with col_result:
 
 with col_quality:
     quality = st.selectbox('品质', ('1','2','3','4','5'))
+
+col_category, col_item, col_tier, col_enchantment = st.columns(4)
+
+with col_category:
+    category = st.selectbox('类别', category_dict.keys())
+
+with col_item:
+    item = st.selectbox('物品', category_dict[category])
+
+with col_tier:
+    tier = st.selectbox('等阶', ('T1','T2','T3','T4','T5','T6','T7','T8'))
+
+with col_enchantment:
+    enchantment = st.selectbox('附魔', ('0','1','2','3','4'))
 
 name, uniquename, description = selected_item.split(' = ')
 
@@ -104,12 +124,7 @@ with col_item_price:
 
 
 
-# category_dict = {
-#     '配件': ['背包','披风'],
-#     '护甲': ['布帽','布甲','布鞋'],
-#     '法术武器': ['奥术法杖', '自然法杖'],
-#     '基础资源': ['布料', '纤维作物', '兽皮', '皮制品', '金属条', '矿石', '木条', '石材', '石砌块', '木材'],
-# }
+
 
 # id_dict = {
 
@@ -143,22 +158,7 @@ with col_item_price:
 # else:    
 #     selected_name = st.selectbox('已发现：', search_result['UniqueName'])
 
-# col_category, col_item, col_tier, col_enchantment, col_quality = st.columns(5)
 
-# with col_category:
-#     category = st.selectbox('类别', category_dict.keys())
-
-# with col_item:
-#     item = st.selectbox('物品', category_dict[category])
-
-# with col_tier:
-#     tier = st.selectbox('等阶', ('T1','T2','T3','T4','T5','T6','T7','T8'))
-
-# with col_enchantment:
-#     enchantment = st.selectbox('附魔', ('0','1','2','3','4'))
-
-# with col_quality:
-#     quality = st.selectbox('品质', ('1','2','3','4','5'))
 
 # if category == '基础资源':
 #     level = '_LEVEL' + enchantment
