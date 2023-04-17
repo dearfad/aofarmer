@@ -68,7 +68,7 @@ with col_result:
 
 
 with col_quality:
-    quality = st.selectbox('品质', ('1','2','3','4','5'))
+    quality = st.selectbox('品质', ('所有','1','2','3','4','5'))
 
 col_category, col_item, col_tier, col_enchantment = st.columns(4)
 
