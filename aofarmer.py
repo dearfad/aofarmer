@@ -36,7 +36,7 @@ with col_search:
 with col_result:
     search_result = item_ids[item_ids['UniqueName'].str.contains(input_name.strip(), case=False) | item_ids['Name_CN'].str.contains(input_name.strip(), case=False) | item_ids['Name_EN'].str.contains(input_name.strip(), case=False)]
     if search_result.empty:
-        selected_item = st.selectbox('搜索结果：', '新手级背包 = T2_BAG = 装备物品')
+        selected_item = st.selectbox('搜索结果：', ['新手级背包 = T2_BAG = 装备物品'])
     else:
         selected_item = st.selectbox('搜索结果：', search_result['Name_CN'] + ' = ' + search_result['UniqueName'] + ' = ' + search_result['Description_CN'])
 
