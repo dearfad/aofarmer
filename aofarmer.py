@@ -22,7 +22,8 @@ def read_items_info():
     # item_ids['Description_CN'] = ao_bin_dumps['LocalizedDescriptions'].apply(lambda x:x["ZH-CN"] if x else '')
     # item_ids['Name_EN'] = ao_bin_dumps['LocalizedNames'].apply(lambda x:x["ZH-CN"] if x else '')
     # item_ids['Description_EN'] = ao_bin_dumps['LocalizedDescriptions'].apply(lambda x:x["ZH-CN"] if x else '')
-    return item_ids
+    # return item_ids
+    return ao_bin_dumps
 
 item_ids = read_items_info()
 st.write(item_ids)
