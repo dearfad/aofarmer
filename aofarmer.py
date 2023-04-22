@@ -8,10 +8,6 @@ st.write("# Albion Online Farmer! 👨‍🌾")
 
 api_url = "https://east.albion-online-data.com/api/v2/stats/"
 
-item_ids_url = 'https://raw.githubusercontent.com/ao-data/ao-bin-dumps/master/formatted/items.json'
-
-image_url = 'https://render.albiononline.com/v1/item/'
-
 category_dict = {
     '所有': [],
     '配件': ['背包','披风'],
@@ -64,88 +60,28 @@ id_dict = {
     '木材': 'WOOD',
 }
 
-@st.cache_data
-def read_items_info():
-    ao_bin_dumps = pd.read_json(item_ids_url)
-    item_ids = pd.DataFrame()
-    item_ids['UniqueName'] = ao_bin_dumps['UniqueName']
-    item_ids['Name_CN'] = ao_bin_dumps['LocalizedNames'].apply(lambda x:x["ZH-CN"] if x else '')
-    item_ids['Description_CN'] = ao_bin_dumps['LocalizedDescriptions'].apply(lambda x:x["ZH-CN"] if x else '')
-    item_ids['Name_EN'] = ao_bin_dumps['LocalizedNames'].apply(lambda x:x["EN-US"] if x else '')
-    item_ids['Description_EN'] = ao_bin_dumps['LocalizedDescriptions'].apply(lambda x:x["EN-US"] if x else '')
-    return item_ids
-
-item_ids = read_items_info()
-
-st.write(f"*️⃣ **Total: {item_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
-
-col_search, col_result, col_quality = st.columns([1,4,1])
-
-with col_search:
-    input_name = st.text_input('模糊搜索：', '')
-
-with col_result:
-    search_result = item_ids[item_ids['UniqueName'].str.contains(input_name.strip(), case=False) | item_ids['Name_CN'].str.contains(input_name.strip(), case=False) | item_ids['Name_EN'].str.contains(input_name.strip(), case=False)]
-    if search_result.empty:
-        selected_item = st.selectbox('搜索结果：', ['新手级背包 = T2_BAG = 装备物品'])
-    else:
-        selected_item = st.selectbox('搜索结果：', search_result['Name_CN'] + ' = ' + search_result['UniqueName'] + ' = ' + search_result['Description_CN'])
-
-
-with col_quality:
-    quality = st.selectbox('品质', ('所有','1','2','3','4','5'))
-
-col_category, col_item, col_tier, col_enchantment, col_x = st.columns(5)
+col_category, col_price = st.columns(2)
 
 with col_category:
     category = st.selectbox('类别', category_dict.keys())
+    id = st.selectbox('物品', category_dict[category])
 
-with col_item:
-    item = st.selectbox('物品', category_dict[category])
-
-with col_tier:
-    tier = st.selectbox('等阶', ('所有','T1','T2','T3','T4','T5','T6','T7','T8'))
-
-with col_enchantment:
-    enchantment = st.selectbox('附魔', ('所有','0','1','2','3','4'))
-
-with col_x:
-    x = id_dict[item]
-    t = tier if tier!='所有' else ''
-    s = t + '_' + x
-    st.write(s)
-    s_result = item_ids[item_ids['UniqueName'].str.contains(s.strip(), case=False)]
-    if s_result.empty:
-        s_item = st.selectbox('搜索结果：', ['新手级背包 = T2_BAG = 装备物品'])
-    else:
-        s_item = st.selectbox('搜索结果：', s_result['Name_CN'] + ' = ' + s_result['UniqueName'] + ' = ' + s_result['Description_CN'])
-
-name, uniquename, description = selected_item.split(' = ')
-
-col_item_info, col_item_price, col_empty = st.columns([1,3,1])
-
-with col_item_info:
-    item_image_url = image_url + uniquename + '.png' + '?quality=' + quality
-    st.image(item_image_url)
-    st.header(name)
-    st.write(description)
-    st.write(uniquename)
-
-with col_item_price:
-    search_url = api_url + 'prices/' + uniquename + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
-    r = requests.get(search_url)
-    prices = pd.DataFrame(r.json())
-    cities = ['Caerleon','Bridgewatch','Lymhurst','Fort Sterling','Thetford','Martlock']
-    cols_prices = st.columns(len(cities))
-    for i, city in enumerate(cities):
-        with cols_prices[i]:
-            sell_min_price = int(prices.loc[prices['city']==city, 'sell_price_min'])
-            buy_max_price =  int(prices.loc[prices['city']==city, 'buy_price_max'])
-            if sell_min_price == 0 or buy_max_price == 0:
-                diff_price = None
-            else:
-                diff_price = buy_max_price-sell_min_price
-            st.metric(f':classical_building: **{city}**', sell_min_price, diff_price)
+with col_price:
+    st.write(id)
+    # search_url = api_url + 'prices/' + uniquename + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
+    # r = requests.get(search_url)
+    # prices = pd.DataFrame(r.json())
+    # cities = ['Caerleon','Bridgewatch','Lymhurst','Fort Sterling','Thetford','Martlock']
+    # cols_prices = st.columns(len(cities))
+    # for i, city in enumerate(cities):
+    #     with cols_prices[i]:
+    #         sell_min_price = int(prices.loc[prices['city']==city, 'sell_price_min'])
+    #         buy_max_price =  int(prices.loc[prices['city']==city, 'buy_price_max'])
+    #         if sell_min_price == 0 or buy_max_price == 0:
+    #             diff_price = None
+    #         else:
+    #             diff_price = buy_max_price-sell_min_price
+    #         st.metric(f':classical_building: **{city}**', sell_min_price, diff_price)
 
 #     history_hour_url = api_url + 'history/' + item_id + '.json?time-scale=1'
 #     r_history_hour = requests.get(history_hour_url)
@@ -176,33 +112,3 @@ with col_item_price:
 #         item_history_hour = pd.DataFrame(history_hour.loc[history_hour['location']=='Caerleon','data'].values[0])
 #         st.write('Caerleon')
 #         st.write(item_history_hour.iloc[-9:-1,:2])
-
-
-
-
-
-
-
-
-
-# if search_result.empty:
-#     st.warning('未找到相关信息...')
-#     url_name = ''
-# else:    
-#     selected_name = st.selectbox('已发现：', search_result['UniqueName'])
-
-
-
-# if category == '基础资源':
-#     level = '_LEVEL' + enchantment
-#     if enchantment == '0':
-#         item_id = tier + '_' + id_dict[item]
-#     else:
-#         item_id = tier + '_' + id_dict[item] + '_LEVEL' + enchantment + '@' + enchantment
-# else:
-#     item_id = tier + '_' + id_dict[item]
-
-
-
-
-
