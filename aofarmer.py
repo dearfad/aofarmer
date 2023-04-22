@@ -66,10 +66,13 @@ with col_category:
 with col_id:
     id = st.selectbox('物品', category_dict[category])
 
-st.write(id_dict[id])
-    # search_url = api_url + 'prices/' + uniquename + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
-    # r = requests.get(search_url)
-    # prices = pd.DataFrame(r.json())
+item_id = id_dict[id]
+item_list = ['T2_BAG', 'T3_BAG']
+search_url = api_url + 'prices/' + item_list + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon'
+r = requests.get(search_url)
+prices = pd.DataFrame(r.json())
+st.write(prices)
+
     # cities = ['Caerleon','Bridgewatch','Lymhurst','Fort Sterling','Thetford','Martlock']
     # cols_prices = st.columns(len(cities))
     # for i, city in enumerate(cities):
