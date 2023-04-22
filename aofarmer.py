@@ -68,7 +68,7 @@ with col_id:
 
 item_id = id_dict[id]
 
-item_list = 'BAG, BAG_INSIGHT'
+item_list = ['BAG', 'BAG_INSIGHT']
 bag_list = 'T2_BAG, T3_BAG'
 for item in item_list:
     for tier in range(4,9):
