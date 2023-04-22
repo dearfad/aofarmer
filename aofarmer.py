@@ -75,6 +75,7 @@ for item in item_list:
         bag_list = bag_list + ', '+ f'T{tier}_{item}' 
 search_url = api_url + 'prices/' + bag_list + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon'
 st.write(len(search_url))
+st.write(search_url)
 r = requests.get(search_url)
 prices = pd.DataFrame(r.json())
 st.write(prices)
