@@ -61,6 +61,7 @@ id_dict = {
 
 item_dict = {    
     '背包': ['ALL', 'BAG', 'BAG_INSIGHT'],
+    '披风': ['ALL', 'CAPE']
 }
 
 col_category, col_id, col_item = st.columns(3)
