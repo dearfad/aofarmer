@@ -67,11 +67,12 @@ with col_id:
     id = st.selectbox('物品', category_dict[category])
 
 item_id = id_dict[id]
-item_list = 'T2_BAG, T3_BAG'
 
-for enchantment in range(1,9):
-    st.write(enchantment)
-
+item_list = 'BAG, BAG_INSIGHT'
+bag_list = 'T2_BAG, T3_BAG'
+for item in item_list:
+    for tier in range(4,9):
+        bag_list = bag_list + ', '+ f'T{tier}_{item}' 
 search_url = api_url + 'prices/' + item_list + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon'
 st.write(len(search_url))
 r = requests.get(search_url)
