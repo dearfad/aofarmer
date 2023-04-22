@@ -59,9 +59,8 @@ id_dict = {
     '木材': 'WOOD',
 }
 
-item_dict = {
-    
-    'BAG': ['ALL', 'BAG', 'BAG_INSIGHT'],
+item_dict = {    
+    '背包': ['ALL', 'BAG', 'BAG_INSIGHT'],
 }
 
 col_category, col_id, col_item = st.columns(3)
