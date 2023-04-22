@@ -67,7 +67,7 @@ with col_category:
     id = st.selectbox('物品', category_dict[category])
 
 with col_price:
-    st.write(id)
+    st.write(id_dict[id])
     # search_url = api_url + 'prices/' + uniquename + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
     # r = requests.get(search_url)
     # prices = pd.DataFrame(r.json())
