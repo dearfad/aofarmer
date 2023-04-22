@@ -10,28 +10,28 @@ api_url = "https://east.albion-online-data.com/api/v2/stats/"
 
 category_dict = {
     '配件': ['背包','披风'],
-    '护甲': ['布甲','布帽','布鞋','皮甲','皮帽','皮鞋','板甲','板甲头盔','板甲长靴','稀有护甲','稀有头盔','稀有鞋子'],
-    '神器': [],
-    '城市资源': [],
-    '消耗品': [],
-    '农耕品': [],
-    '家具': [],
-    '采集装备': [],
-    '工人': [],
-    '奢侈品': [],
-    '法术武器': ['奥术法杖', '自然法杖'],
-    '基本材料': [],
-    '近战武器': [],
-    '坐骑': [],
-    '副手': [],
-    '其他': [],
-    '制造品': [],
-    '远程武器': [],
-    '基础资源': ['布料', '纤维作物', '兽皮', '皮制品', '金属条', '矿石', '木条', '石材', '石砌块', '木材'],
-    '书卷': [],
-    '代币': [],
-    '工具': [],
-    '战利品装饰': [],
+    # '护甲': ['布甲','布帽','布鞋','皮甲','皮帽','皮鞋','板甲','板甲头盔','板甲长靴','稀有护甲','稀有头盔','稀有鞋子'],
+    # '神器': [],
+    # '城市资源': [],
+    # '消耗品': [],
+    # '农耕品': [],
+    # '家具': [],
+    # '采集装备': [],
+    # '工人': [],
+    # '奢侈品': [],
+    # '法术武器': ['奥术法杖', '自然法杖'],
+    # '基本材料': [],
+    # '近战武器': [],
+    # '坐骑': [],
+    # '副手': [],
+    # '其他': [],
+    # '制造品': [],
+    # '远程武器': [],
+    # '基础资源': ['布料', '纤维作物', '兽皮', '皮制品', '金属条', '矿石', '木条', '石材', '石砌块', '木材'],
+    # '书卷': [],
+    # '代币': [],
+    # '工具': [],
+    # '战利品装饰': [],
 }
 
 id_dict = {
@@ -59,26 +59,34 @@ id_dict = {
     '木材': 'WOOD',
 }
 
-col_category, col_id = st.columns(2)
+item_dict = {
+    
+    'BAG': ['ALL', 'BAG', 'BAG_INSIGHT'],
+}
+
+col_category, col_id, col_item = st.columns(3)
 
 with col_category:
     category = st.selectbox('类别', category_dict.keys())
 with col_id:
-    id = st.selectbox('物品', category_dict[category])
+    id = st.selectbox('ID', category_dict[category])
+with col_item:
+    item = st.selectbox('ITEM', item_dict[id])
 
-item_id = id_dict[id]
 
-item_list = ['BAG', 'BAG_INSIGHT']
-bag_list = 'T2_BAG,T3_BAG'
-for item in item_list:
-    for tier in range(4,9):
-        bag_list = bag_list + ','+ f'T{tier}_{item}' 
-search_url = api_url + 'prices/' + bag_list + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon'
-st.write(len(search_url))
-st.write(search_url)
-r = requests.get(search_url)
-prices = pd.DataFrame(r.json())
-st.write(prices)
+# item_id = id_dict[id]
+
+# item_list = ['BAG', 'BAG_INSIGHT']
+# bag_list = 'T2_BAG,T3_BAG'
+# for item in item_list:
+#     for tier in range(4,9):
+#         bag_list = bag_list + ','+ f'T{tier}_{item}' 
+# search_url = api_url + 'prices/' + bag_list + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon'
+# st.write(len(search_url))
+# st.write(search_url)
+# r = requests.get(search_url)
+# prices = pd.DataFrame(r.json())
+# st.write(prices)
 
     # cities = ['Caerleon','Bridgewatch','Lymhurst','Fort Sterling','Thetford','Martlock']
     # cols_prices = st.columns(len(cities))
