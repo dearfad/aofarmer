@@ -73,7 +73,7 @@ bag_list = 'T2_BAG, T3_BAG'
 for item in item_list:
     for tier in range(4,9):
         bag_list = bag_list + ', '+ f'T{tier}_{item}' 
-search_url = api_url + 'prices/' + item_list + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon'
+search_url = api_url + 'prices/' + bag_list + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon'
 st.write(len(search_url))
 r = requests.get(search_url)
 prices = pd.DataFrame(r.json())
