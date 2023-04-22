@@ -68,6 +68,10 @@ with col_id:
 
 item_id = id_dict[id]
 item_list = 'T2_BAG, T3_BAG'
+
+for enchantment in range(1,9):
+    st.write(enchantment)
+
 search_url = api_url + 'prices/' + item_list + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon'
 st.write(len(search_url))
 r = requests.get(search_url)
