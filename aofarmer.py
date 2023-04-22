@@ -8,6 +8,23 @@ st.write("# Albion Online Farmer! 👨‍🌾")
 
 api_url = "https://east.albion-online-data.com/api/v2/stats/"
 
+item_ids_url = 'https://raw.githubusercontent.com/ao-data/ao-bin-dumps/master/formatted/items.json'
+
+@st.cache_data
+def read_items_info():
+    ao_bin_dumps = pd.read_json(item_ids_url)
+    item_ids = pd.DataFrame()
+    item_ids['UniqueName'] = ao_bin_dumps['UniqueName']
+    item_ids['Name_CN'] = ao_bin_dumps['LocalizedNames'].apply(lambda x:x["ZH-CN"] if x else '')
+    item_ids['Description_CN'] = ao_bin_dumps['LocalizedDescriptions'].apply(lambda x:x["ZH-CN"] if x else '')
+    item_ids['Name_EN'] = ao_bin_dumps['LocalizedNames'].apply(lambda x:x["EN-US"] if x else '')
+    item_ids['Description_EN'] = ao_bin_dumps['LocalizedDescriptions'].apply(lambda x:x["EN-US"] if x else '')
+    return item_ids
+
+item_ids = read_items_info()
+
+st.write(item_ids)
+
 category_dict = {
     '配件': ['背包','披风'],
     # '护甲': ['布甲','布帽','布鞋','皮甲','皮帽','皮鞋','板甲','板甲头盔','板甲长靴','稀有护甲','稀有头盔','稀有鞋子'],
@@ -63,6 +80,9 @@ item_dict = {
     '背包': ['ALL', 'BAG', 'BAG_INSIGHT'],
     '披风': ['ALL', 'CAPE']
 }
+
+
+
 
 col_category, col_id, col_item = st.columns(3)
 
