@@ -60,14 +60,14 @@ id_dict = {
     '木材': 'WOOD',
 }
 
-col_category, col_price = st.columns([1,4])
+col_category, col_id = st.columns(2)
 
 with col_category:
     category = st.selectbox('类别', category_dict.keys())
+with col_id:
     id = st.selectbox('物品', category_dict[category])
 
-with col_price:
-    st.write(id_dict[id])
+st.write(id_dict[id])
     # search_url = api_url + 'prices/' + uniquename + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&qualities=' + quality
     # r = requests.get(search_url)
     # prices = pd.DataFrame(r.json())
