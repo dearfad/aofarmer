@@ -67,7 +67,7 @@ with col_id:
     id = st.selectbox('物品', category_dict[category])
 
 item_id = id_dict[id]
-item_list = ['T2_BAG', 'T3_BAG']
+item_list = 'T2_BAG, T3_BAG'
 search_url = api_url + 'prices/' + item_list + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon'
 r = requests.get(search_url)
 prices = pd.DataFrame(r.json())
