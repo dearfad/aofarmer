@@ -60,7 +60,7 @@ id_dict = {
     '木材': 'WOOD',
 }
 
-col_category, col_price = st.columns(2)
+col_category, col_price = st.columns([1,4])
 
 with col_category:
     category = st.selectbox('类别', category_dict.keys())
