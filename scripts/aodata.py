@@ -17,8 +17,8 @@ def read_item_ids():
     item_ids['Description_EN'] = ao_bin_dumps['LocalizedDescriptions'].apply(lambda x:x["EN-US"] if x else '')
     return item_ids
 
-def get_last_history(x):
-    st.write(x)
+def get_last_history(x):  
+    x = x[-1] if x else '0'
     return x
 
 @st.cache_data(show_spinner=False,ttl=600.0)
