@@ -8,12 +8,13 @@ st.set_page_config(page_title='Albion Online Farmer', page_icon='👨‍🌾', l
 
 st.write("# Albion Online Farmer! 👨‍🌾")
 
+
 server = st.selectbox('服务器', ['亚服','国际服'])
 api_dict = {
     '亚服': 'https://east.albion-online-data.com/api/v2/stats/',
     '国际服': 'https://albion-online-data.com/api/v2/stats/',
 }
-st.session_state.api_url = api_dict[server]
+api_url = api_dict[server]
 
 item_ids = read_item_ids()
 
@@ -39,7 +40,7 @@ with col_city:
     city = st.multiselect('城市',cities,['Caerleon'])
 
 
-prices_df = get_prices_df(UNIQUENAME[item])
+prices_df = get_prices_df(api_url, UNIQUENAME[item])
 
 types = prices_df['type'].unique()
 type = st.multiselect('类别',types,types[0])

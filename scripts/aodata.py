@@ -2,8 +2,6 @@ import streamlit as st
 import pandas as pd
 import requests
 
-api_url = st.session_state.api_url if st.session_state.api_url else 'https://east.albion-online-data.com/api/v2/stats/'
-
 item_ids_url = 'https://raw.githubusercontent.com/ao-data/ao-bin-dumps/master/formatted/items.json'
 
 @st.cache_data
@@ -19,7 +17,7 @@ def read_item_ids():
 
 
 @st.cache_data(show_spinner=False,ttl=600.0)
-def get_prices(itemlist):
+def get_prices(api_url, itemlist):
     query = [f'T2_{itemlist[0]},T3_{itemlist[0]}']
     n=0
     for item in itemlist:
@@ -67,8 +65,8 @@ def get_prices(itemlist):
     prices.drop('data', axis=1, inplace=True)
     return prices
 
-def get_prices_df(itemlist):
-    prices_df = get_prices(itemlist)
+def get_prices_df(api_url, itemlist):
+    prices_df = get_prices(api_url, itemlist)
     item_ids = read_item_ids()
     prices_df['Name_CN'] = prices_df['item_id'].apply(lambda x:item_ids.loc[item_ids['UniqueName']==x, 'Name_CN'].values[0])
     prices_df['Tier'] = prices_df['item_id'].apply(lambda x:x.split('_')[0])
