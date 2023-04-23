@@ -45,15 +45,17 @@ with col_quality:
     qualites = [1,2,3,4,5]
     quality = st.multiselect('品质',qualites,[1])
 
+col_city, col_item = st.column(2)
 
-cities = ['Caerleon','Bridgewatch','Lymhurst','Fort Sterling','Thetford','Martlock']
-city = st.multiselect('城市',cities,['Caerleon'])
-
+with col_city:
+    cities = ['Caerleon','Bridgewatch','Lymhurst','Fort Sterling','Thetford','Martlock']
+    city = st.multiselect('城市',cities,['Caerleon'])
 
 prices_df = get_prices_df(api_url, UNIQUENAME[item])
 
-types = prices_df['type'].unique()
-type = st.multiselect('类别',types,types[0])
+with col_item:
+    types = prices_df['type'].unique()
+    type = st.multiselect('物品',types,types[0])
 
 columns = list(prices_df.columns)
 column = st.multiselect('显示',columns,['Name_CN','Tier','city','enchantment','quality','sell_price_min','sell_price_min_date','buy_price_max','buy_price_max_date','timestamp_24','avg_price_24','item_count_24'])
