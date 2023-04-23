@@ -56,7 +56,6 @@ def get_prices(itemlist):
     prices['avg_price'] = prices['data'].apply(lambda x:x[-1]['avg_price'] if isinstance(x, list) else x)
     prices['item_count'] = prices['data'].apply(lambda x:x[-1]['item_count'] if isinstance(x, list) else x)
     prices.drop('data', axis=1, inplace=True)
-    st.write(prices.head(5))        
     return prices
 
 def get_prices_df(itemlist):
@@ -67,6 +66,6 @@ def get_prices_df(itemlist):
     prices_df['enchantment'] = prices_df['item_id'].apply(lambda x:x.split('@')[1] if '@' in x else '0')
     prices_df['type'] = prices_df['Name_CN'].apply(lambda x:x.split('级')[1])
     columns =["Name_CN","Tier","item_id","city","enchantment","quality","type","sell_price_min","sell_price_min_date","sell_price_max","sell_price_max_date","buy_price_min",
-            "buy_price_min_date","buy_price_max","buy_price_max_date"]
+            "buy_price_min_date","buy_price_max","buy_price_max_date","timestamp","avg_price","item_count"]
     prices_df = prices_df.reindex(columns=columns)
     return prices_df
