@@ -50,8 +50,8 @@ def get_prices(itemlist):
     prices = prices.merge(history, how='left', on='mergekey')
     prices.drop(['mergekey','location','item_id_y','quality_y'],axis=1, inplace=True)
     prices.rename(columns={'item_id_x': 'item_id', 'quality_x': 'quality'}, inplace=True)
-    st.write(prices.data.loc[0])
-    # prices['history'] = prices['data'].apply(lambda x:x if x else '0')
+    # st.write(prices.data.loc[0])
+    prices['history'] = prices['data'].apply(lambda x:x[-1]['avg_price'] if x else '0')
     st.write(prices.head(5))        
     return prices
 
