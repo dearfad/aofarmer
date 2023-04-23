@@ -51,5 +51,5 @@ CATEGORY = {
 
 UNIQUENAME = {    
     '背包': ['BAG', 'BAG_INSIGHT'],
-    '披风': ['CAPE']
+    '披风': ['CAPE','CAPEITEM_FW_BRIDGEWATCH','CAPEITEM_FW_FORTSTERLING']
 }
