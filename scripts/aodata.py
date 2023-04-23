@@ -18,20 +18,27 @@ def read_item_ids():
     return item_ids
 
 def get_prices(itemlist):
-    query = f'T2_{itemlist[0]},T3_{itemlist[0]}'
+    query = [f'T2_{itemlist[0]},T3_{itemlist[0]}']
+    n=0
     for item in itemlist:
         for tier in range(4,9):
             for enchantment in range(0,5):
+                if len(query[n] + ','+ f'T{tier}_{item}@{enchantment}')>1800:
+                    n = n+1
+                    query[n] = ''
                 if enchantment == 0:
-                    query = query + ','+ f'T{tier}_{item}' 
+                    query[n] = query[n] + ','+ f'T{tier}_{item}' 
                 else:
-                    query = query + ','+ f'T{tier}_{item}@{enchantment}' 
+                    query[n] = query[n] + ','+ f'T{tier}_{item}@{enchantment}' 
 
-    search_url = api_url + 'prices/' + query + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon'
-    st.write(len(search_url))
-    # st.write(search_url)
-    r = requests.get(search_url)
-    prices = pd.DataFrame(r.json())
+    prices = pd.DataFrame()
+    for q in query:
+        search_url = api_url + 'prices/' + q + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon'
+        st.write(len(search_url))
+        r = requests.get(search_url)
+        prices_temp = pd.DataFrame(r.json())
+        prices = pd.concat([prices, prices_temp])
+
     return prices
 
 def get_prices_df(itemlist):
