@@ -42,7 +42,7 @@ view_df = prices_df.loc[
     (prices_df['city'].isin(city)) & 
     (prices_df['Tier'].isin(tier)) & 
     (prices_df['quality'].isin(quality)) &
-    (prices_df['enchantment'].isin(enchantment)) &
+    (prices_df['enchantment'].isin(enchantment)) 
 ]
 
 names = view_df['Name_CN'].unique()
