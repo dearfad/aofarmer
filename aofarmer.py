@@ -24,7 +24,7 @@ with col_city:
 
 prices_df = get_prices_df(UNIQUENAME[item])
 
-view_df = prices_df.loc[prices_df['city'] in city]
+view_df = prices_df.loc[prices_df['city'] isin city]
 
 st.dataframe(view_df,use_container_width=True)
 
