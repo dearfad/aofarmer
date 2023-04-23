@@ -49,6 +49,8 @@ def get_prices(itemlist):
     history['mergekey'] = history['item_id'].map(str) + '-' + history['location'].map(str) + '-' + history['quality'].map(str)
     st.write(prices.head(5))
     st.write(history.head(5))
+    prices = prices.merge(history, how=left, on='mergekey')
+    st.write(prices.head(5))
         
     return prices
 
