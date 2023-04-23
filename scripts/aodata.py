@@ -32,6 +32,6 @@ def get_prices(itemlist):
 def get_prices_df(itemlist):
     prices_df = get_prices(itemlist)
     item_ids = read_item_ids()
-    st.write(prices_df['item_id'].apply(lambda x:item_ids.loc[item_ids['UniqueName']==x, 'Name_CN'])
+    st.write(prices_df['item_id'].apply(lambda x:item_ids.loc[item_ids['UniqueName']==x, 'Name_CN']))
     # prices_df['Name_CN'] = prices_df['item_id'].apply(lambda x:item_ids.loc[item_ids['UniqueName']==x, 'Name_CN'][0])
     return prices_df
