@@ -65,7 +65,6 @@ def get_prices(itemlist):
     prices['avg_price_24'] = prices['data'].apply(lambda x:x[-1]['avg_price'] if isinstance(x, list) else 0)
     prices['item_count_24'] = prices['data'].apply(lambda x:x[-1]['item_count'] if isinstance(x, list) else 0)
     prices.drop('data', axis=1, inplace=True)
-    st.write(prices.head(5))
     return prices
 
 def get_prices_df(itemlist):
