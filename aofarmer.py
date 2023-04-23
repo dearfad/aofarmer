@@ -12,19 +12,25 @@ item_ids = read_item_ids()
 
 st.write(f"*️⃣ **Total: {item_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
 
-col_category, col_item, col_city = st.columns(3)
+col_category, col_item, col_tier, col_quality, col_city = st.columns(5)
 
 with col_category:
     category = st.selectbox('类别', CATEGORY.keys())
 with col_item:
     item = st.selectbox('ID', CATEGORY[category])
+with col_tier:
+    tiers = ['T1','T2','T3','T4','T5','T6','T7','T8']
+    tier = st.multiselect('tier',tiers,tiers)
+with col_quality:
+    qualites = ['1','2','3','4','5']
+    quality = st.multiselect('quality',qualites,qualites)
 with col_city:
     cities = ['Caerleon','Bridgewatch','Lymhurst','Fort Sterling','Thetford','Martlock']
     city = st.multiselect('city',cities,cities)
 
 prices_df = get_prices_df(UNIQUENAME[item])
 
-view_df = prices_df.loc[prices_df['city'].isin(city)]
+view_df = prices_df.loc[prices_df['city'].isin(city) & prices_df['Tier'].isin(tier) & prices_df['quality'].isin(quality)]
 
 st.dataframe(view_df,use_container_width=True)
 
