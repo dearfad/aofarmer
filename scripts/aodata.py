@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import requests
 
-api_url = st.session_state.api_url if st.session_state.api_url else ''https://east.albion-online-data.com/api/v2/stats/'
+api_url = st.session_state.api_url if st.session_state.api_url else 'https://east.albion-online-data.com/api/v2/stats/'
 
 item_ids_url = 'https://raw.githubusercontent.com/ao-data/ao-bin-dumps/master/formatted/items.json'
 
