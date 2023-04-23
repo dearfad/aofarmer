@@ -52,7 +52,7 @@ def get_prices(itemlist):
     prices.drop(['mergekey','location','item_id_y','quality_y'],axis=1, inplace=True)
     prices.rename(columns={'item_id_x': 'item_id', 'quality_x': 'quality'}, inplace=True)
     # st.write(prices.data.loc[0])
-    prices['history'] = prices['data'].apply(lambda x:x[-1] if not isinstance(x, list) else x)
+    prices['history'] = prices['data'].apply(lambda x:x[-1] if isinstance(x, list) else x)
     st.write(prices.head(5))        
     return prices
 
