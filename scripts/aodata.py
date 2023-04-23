@@ -33,6 +33,7 @@ def get_prices(itemlist):
                     query[n] = query[n] + ','+ f'T{tier}_{item}@{enchantment}' 
 
     prices = pd.DataFrame()
+    history = pd.DataFrame()
     for q in query:
         search_url = api_url + 'prices/' + q + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon'
         r = requests.get(search_url)
@@ -41,8 +42,11 @@ def get_prices(itemlist):
         
         history_url = api_url + 'history/' + q + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&time-scale=24'
         r = requests.get(history_url)
-        history = pd.DataFrame(r.json())
-        st.write(history)
+        history_temp = pd.DataFrame(r.json())
+        history = pd.concat([history, history_temp], ignore_index=True)
+    
+    st.write(prices.head(5))
+    st.write(history.head(5))
         
     return prices
 
