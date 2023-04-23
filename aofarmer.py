@@ -24,7 +24,9 @@ with col_city:
 
 prices_df = get_prices_df(UNIQUENAME[item])
 
-st.dataframe(prices_df,use_container_width=True)
+view_df = prices_df.loc[prices_df['city'] in city]
+
+st.dataframe(view_df,use_container_width=True)
 
 
 
