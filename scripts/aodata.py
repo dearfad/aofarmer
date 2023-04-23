@@ -32,5 +32,5 @@ def get_prices(itemlist):
 def get_prices_df(itemlist):
     prices_df = get_prices(itemlist)
     items_ids = read_item_ids()
-    prices_df['Name_CN'] = prices_df['item_id'].apply(lambda x:items_ids.loc[items_ids['UniqueName']==x,items_ids['Name_CN']])
+    prices_df['Name_CN'] = prices_df['item_id'].apply(lambda x:items_ids.loc[items_ids['UniqueName']==x, 'Name_CN'])
     return prices_df
