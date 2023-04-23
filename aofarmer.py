@@ -15,7 +15,7 @@ item_ids = read_item_ids()
 st.write(f"*️⃣ **Total: {item_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
 
 
-col_server, col_category, col_sub_category, col_tier, col_enchantment, col_quality  = st.columns(6)
+col_server, col_category, col_sub_category  = st.columns(3)
 
 with col_server:
     server = st.selectbox('服务器', ['亚服','国际服'])
@@ -31,6 +31,8 @@ with col_category:
 with col_sub_category:
     item = st.selectbox('亚类', CATEGORY[category])
 
+
+col_tier, col_enchantment, col_quality = st.columns(3)
 with col_tier:
     tiers = ['T1','T2','T3','T4','T5','T6','T7','T8']
     tier = st.multiselect('等阶',tiers,['T4'])
