@@ -12,7 +12,7 @@ item_ids = read_item_ids()
 
 st.write(f"*️⃣ **Total: {item_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
 
-col_category, col_item, col_tier, col_quality, col_city = st.columns(5)
+col_category, col_item, col_tier, col_quality, col_city, col_enchantment = st.columns(6)
 
 with col_category:
     category = st.selectbox('类别', CATEGORY.keys())
@@ -27,13 +27,16 @@ with col_quality:
 with col_city:
     cities = ['Caerleon','Bridgewatch','Lymhurst','Fort Sterling','Thetford','Martlock']
     city = st.multiselect('city',cities,cities)
+with col_enchantment:
+    enchantments = ['0','1','2','3','4']
+    enchantment = st.multiselect('enchantment',enchantments,enchantments)
 
 prices_df = get_prices_df(UNIQUENAME[item])
 
 columns = list(prices_df.columns)
 column = st.multiselect('column',columns,columns)
 
-view_df = prices_df.loc[(prices_df['city'].isin(city)) & (prices_df['Tier'].isin(tier)) & (prices_df['quality'].isin(quality))]
+view_df = prices_df.loc[(prices_df['city'].isin(city)) & (prices_df['Tier'].isin(tier)) & (prices_df['quality'].isin(quality)) & (prices_df['enchantment'].isin(enchantment))]
 
 
 st.dataframe(view_df[column],use_container_width=True)
