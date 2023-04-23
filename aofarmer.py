@@ -34,7 +34,7 @@ with col_enchantment:
 prices_df = get_prices_df(UNIQUENAME[item])
 
 columns = list(prices_df.columns)
-column = st.multiselect('column',columns,columns)
+column = st.multiselect('column',columns,['Name_CN','Tier','city','enchantment','quality','sell_price_min','sell_price_min_date','buy_price_max','buy_price_max_date'])
 
 types = prices_df['type'].unique()
 type = st.multiselect('Name',types,types)
