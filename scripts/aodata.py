@@ -21,8 +21,8 @@ def get_prices(itemlist):
     query = f'T2_{itemlist[0]},T3_{itemlist[0]}'
     for item in itemlist:
         for tier in range(4,9):
-            query_list = query_list + ','+ f'T{tier}_{item}' 
-    search_url = api_url + 'prices/' + query_list + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon'
+            query = query + ','+ f'T{tier}_{item}' 
+    search_url = api_url + 'prices/' + query + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon'
     st.write(len(search_url))
     st.write(search_url)
     r = requests.get(search_url)
