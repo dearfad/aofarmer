@@ -30,7 +30,7 @@ with col_city:
 
 prices_df = get_prices_df(UNIQUENAME[item])
 
-columns = prices_df.columns
+columns = list(prices_df.columns)
 column = st.multiselect('column',columns,columns)
 
 view_df = prices_df.loc[(prices_df['city'].isin(city)) & (prices_df['Tier'].isin(tier)) & (prices_df['quality'].isin(quality))]
