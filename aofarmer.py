@@ -43,10 +43,9 @@ view_df = prices_df.loc[
     (prices_df['Tier'].isin(tier)) & 
     (prices_df['quality'].isin(quality)) &
     (prices_df['enchantment'].isin(enchantment)) &
-    (prices_df['Name_CN'].isin(name)) 
 ]
 
-names = prices_df['Name_CN'].unique()
+names = view_df['Name_CN'].unique()
 name = st.multiselect('Name',names,names)
 view_df = view_df.loc[
     (prices_df['Name_CN'].isin(name)) 
