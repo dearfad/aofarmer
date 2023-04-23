@@ -29,7 +29,7 @@ with col_city:
     city = st.multiselect('city',cities,['Caerleon'])
 with col_enchantment:
     enchantments = ['0','1','2','3','4']
-    enchantment = st.multiselect('enchantment',enchantments,['0'])
+    enchantment = st.multiselect('enchantment',enchantments,['1'])
 
 prices_df = get_prices_df(UNIQUENAME[item])
 
