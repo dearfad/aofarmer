@@ -19,7 +19,7 @@ with col_category:
 with col_item:
     item = st.selectbox('ID', CATEGORY[category])
 
-st.write(item)
+st.write(UNIQUENAME(item))
 
 # item_id = id_dict[id]
 
