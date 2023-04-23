@@ -36,7 +36,7 @@ def get_prices_df(itemlist):
     # prices_df['Name_CN'] = prices_df['item_id'].apply(lambda x:item_ids.loc[item_ids['UniqueName']==x, 'Name_CN'][0])
     prices_df['Name_CN'] = prices_df['item_id'].apply(lambda x:item_ids.loc[item_ids['UniqueName']==x, 'Name_CN'].values[0])
     prices_df['Tier'] = prices_df['item_id'].apply(lambda x:x.split('_')[0])
-    st.write(prices_df.columns)
+    st.write(list(prices_df.columns))
     # columns = ['Name_CN','Tier','item_id','city','quality',]
     # prices.reindex(columns=)
     return prices_df
