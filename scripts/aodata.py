@@ -28,7 +28,7 @@ def get_prices(itemlist):
                     query = query + ','+ f'T{tier}_{item}@{enchantment}' 
 
     search_url = api_url + 'prices/' + query + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon'
-    # st.write(len(search_url))
+    st.write(len(search_url))
     # st.write(search_url)
     r = requests.get(search_url)
     prices = pd.DataFrame(r.json())
