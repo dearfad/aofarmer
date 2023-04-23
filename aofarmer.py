@@ -46,7 +46,11 @@ view_df = prices_df.loc[
 ]
 
 names = view_df['Name_CN'].unique()
-name = st.multiselect('Name',names,names)
+x = ()
+for n in names:
+    x.append(n.split('级')[1])
+xx = tuple(x)
+name = st.multiselect('Name',xx,xx)
 print_df = view_df.loc[prices_df['Name_CN'].isin(name)]
 
 
