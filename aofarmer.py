@@ -10,6 +10,8 @@ st.write("# Albion Online Farmer! 👨‍🌾")
 
 item_ids = read_item_ids()
 
+st.write(f"*️⃣ **Total: {item_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
+
 st.write(item_ids)
 
 st.write(CATEGORY)

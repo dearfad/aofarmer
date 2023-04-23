@@ -77,7 +77,7 @@ def read_items_info():
 
 item_ids = read_items_info()
 
-st.write(f"*️⃣ **Total: {item_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
+
 
 col_search, col_result, col_quality = st.columns([1,4,1])
 
