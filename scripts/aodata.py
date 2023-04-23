@@ -34,7 +34,7 @@ def get_prices(itemlist):
     prices = pd.DataFrame()
     for q in query:
         search_url = api_url + 'prices/' + q + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon'
-        st.write(len(search_url))
+        # st.write(len(search_url))
         r = requests.get(search_url)
         prices_temp = pd.DataFrame(r.json())
         prices = pd.concat([prices, prices_temp], ignore_index=True)
