@@ -24,32 +24,32 @@ CATEGORY = {
     # '战利品装饰': [],
 }
 
-id_dict = {
+# UNIQUENAME = {
 
-    '背包': 'BAG',
-    '披风': 'CAPE',
+#     '背包': 'BAG',
+#     '披风': 'CAPE',
 
-    '布帽': 'HEAD_CLOTH_SET1',
-    '布甲': 'ARMOR_CLOTH_SET1',
-    '布鞋': 'SHOES_CLOTH_SET1',
+#     '布帽': 'HEAD_CLOTH_SET1',
+#     '布甲': 'ARMOR_CLOTH_SET1',
+#     '布鞋': 'SHOES_CLOTH_SET1',
 
-    '自然法杖': 'MAIN_NATURESTAFF',
-    '奥术法杖': 'MAIN_ARCANESTAFF',
+#     '自然法杖': 'MAIN_NATURESTAFF',
+#     '奥术法杖': 'MAIN_ARCANESTAFF',
 
-    # ==== 基础资源 ====
-    '布料': 'CLOTH',
-    '纤维作物': 'FIBER',
-    '兽皮': 'LEATHER',
-    '皮制品': 'HIDE',
-    '金属条': 'METALBAR',
-    '矿石': 'ORE',
-    '木条': 'PLANKS',
-    '石材': 'ROCK',
-    '石砌块': 'STONEBLOCK',
-    '木材': 'WOOD',
-}
+#     # ==== 基础资源 ====
+#     '布料': 'CLOTH',
+#     '纤维作物': 'FIBER',
+#     '兽皮': 'LEATHER',
+#     '皮制品': 'HIDE',
+#     '金属条': 'METALBAR',
+#     '矿石': 'ORE',
+#     '木条': 'PLANKS',
+#     '石材': 'ROCK',
+#     '石砌块': 'STONEBLOCK',
+#     '木材': 'WOOD',
+# }
 
-item_dict = {    
-    '背包': ['ALL', 'BAG', 'BAG_INSIGHT'],
-    '披风': ['ALL', 'CAPE']
+UNIQUENAME = {    
+    '背包': ['BAG', 'BAG_INSIGHT'],
+    '披风': ['CAPE']
 }

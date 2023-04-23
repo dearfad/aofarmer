@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import requests
-from scripts.category import CATEGORY
+from scripts.category import *
 from scripts.aodata import read_item_ids
 
 st.set_page_config(page_title='Albion Online Farmer', page_icon='👨‍🌾', layout="wide")
@@ -19,6 +19,7 @@ with col_category:
 with col_item:
     item = st.selectbox('ID', CATEGORY[category])
 
+st.write(item)
 
 # item_id = id_dict[id]
 
