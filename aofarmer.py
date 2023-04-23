@@ -12,22 +12,12 @@ item_ids = read_item_ids()
 
 st.write(f"*️⃣ **Total: {item_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
 
-st.write(item_ids)
+col_category, col_item = st.columns(2)
 
-st.write(CATEGORY)
-
-
-
-
-
-# col_category, col_id, col_item = st.columns(2)
-
-# with col_category:
-#     category = st.selectbox('类别', category_dict.keys())
-# with col_id:
-#     id = st.selectbox('ID', category_dict[category])
-# with col_item:
-#     item = st.selectbox('ITEM', item_dict[id])
+with col_category:
+    category = st.selectbox('类别', CATEGORY.keys())
+with col_item:
+    item = st.selectbox('ID', CATEGORY[category])
 
 
 # item_id = id_dict[id]
