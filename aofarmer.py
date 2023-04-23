@@ -45,7 +45,7 @@ with col_quality:
     qualites = [1,2,3,4,5]
     quality = st.multiselect('品质',qualites,[1])
 
-col_city, col_item = st.column(2)
+col_city, col_item = st.columns(2)
 
 with col_city:
     cities = ['Caerleon','Bridgewatch','Lymhurst','Fort Sterling','Thetford','Martlock']
