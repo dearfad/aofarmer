@@ -55,7 +55,7 @@ def get_prices(api_url, itemlist):
         # history_temp = pd.DataFrame(r.json())
         # history_6 = pd.concat([history_6, history_temp], ignore_index=True)
     
-    prices['mergekey'] = prices['item_id'].map(str) + '-' + prices['city'].map(str) + '-' + prices['quality'].map(str)
+    prices['mergekey'] = prices['item_id'].astype(str) + '-' + prices['city'].astype(str) + '-' + prices['quality'].astype(str)
     history_24['mergekey'] = history_24['item_id'].map(str) + '-' + history_24['location'].map(str) + '-' + history_24['quality'].map(str)
     # history_6['mergekey'] = history_6['item_id'].map(str) + '-' + history_6['location'].map(str) + '-' + history_6['quality'].map(str)
     prices = prices.merge(history_24, how='left', on='mergekey')
