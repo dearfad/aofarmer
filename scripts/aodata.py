@@ -16,3 +16,6 @@ def read_item_ids():
     item_ids['Name_EN'] = ao_bin_dumps['LocalizedNames'].apply(lambda x:x["EN-US"] if x else '')
     item_ids['Description_EN'] = ao_bin_dumps['LocalizedDescriptions'].apply(lambda x:x["EN-US"] if x else '')
     return item_ids
+
+def get_prices(itemlist):
+    return itemlist

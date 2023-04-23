@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 import requests
-from scripts.category import *
-from scripts.aodata import read_item_ids
+from scripts.category import CATEGORY, UNIQUENAME
+from scripts.aodata import read_item_ids, get_prices
 
 st.set_page_config(page_title='Albion Online Farmer', page_icon='👨‍🌾', layout="wide")
 
@@ -19,7 +19,9 @@ with col_category:
 with col_item:
     item = st.selectbox('ID', CATEGORY[category])
 
-st.write(UNIQUENAME[item])
+prices = get_prices(UNIQUENAME[item])
+
+st.write(prices)
 
 # item_id = id_dict[id]
 
