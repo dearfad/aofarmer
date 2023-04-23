@@ -12,17 +12,18 @@ item_ids = read_item_ids()
 
 st.write(f"*️⃣ **Total: {item_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖")
 
-col_category, col_item = st.columns(2)
+col_category, col_item, col_city = st.columns(3)
 
 with col_category:
     category = st.selectbox('类别', CATEGORY.keys())
 with col_item:
     item = st.selectbox('ID', CATEGORY[category])
+with col_city:
+    cities = ['Caerleon','Bridgewatch','Lymhurst','Fort Sterling','Thetford','Martlock']
+    city = st.multiselect('city',cities,cities)
 
 prices_df = get_prices_df(UNIQUENAME[item])
 
-cities = ['Caerleon','Bridgewatch','Lymhurst','Fort Sterling','Thetford','Martlock']
-city = st.multiselect('city',cities)
 st.dataframe(prices_df,use_container_width=True)
 
 
