@@ -18,7 +18,7 @@ def read_item_ids():
     return item_ids
 
 def get_last_history(x):  
-    x = x[-1] if x else '0'
+    # x = x[-1] if x else '0'
     return x
 
 @st.cache_data(show_spinner=False,ttl=600.0)
