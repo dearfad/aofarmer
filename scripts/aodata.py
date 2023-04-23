@@ -39,7 +39,7 @@ def get_prices(itemlist):
         prices_temp = pd.DataFrame(r.json())
         prices = pd.concat([prices, prices_temp], ignore_index=True)
         
-        history_url = api_url + 'history/' + q + '.json?time-scale=24'
+        history_url = api_url + 'history/' + q + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&time-scale=24'
         r = requests.get(history_url)
         history = pd.DataFrame(r.json())
         st.write(history)
