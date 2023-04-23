@@ -42,7 +42,7 @@ def get_prices(itemlist):
         history_url = api_url + 'history/' + q + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&time-scale=24'
         r = requests.get(history_url)
         history = pd.DataFrame(r.json())
-        st.write(history)
+        st.write(history.loc[0,'data'])
         
     return prices
 
