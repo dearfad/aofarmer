@@ -18,7 +18,12 @@ def read_item_ids():
 
 @st.cache_data(show_spinner=False,ttl=600.0)
 def get_prices(api_url, itemlist):
-    query = [f'T2_{itemlist[0]},T3_{itemlist[0]}']
+    if itemlist[0] in ['BAG','CAPE','ARMOR_CLOTH_SET1']:
+        query = [f'T2_{itemlist[0]},T3_{itemlist[0]}']
+    elif itemlist[0] in ['MAIN_NATURESTAFF']:
+        query = [f'T3_{itemlist[0]}']
+    else:
+        query = ['']
     n=0
     for item in itemlist:
         for tier in range(4,9):
