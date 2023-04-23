@@ -21,7 +21,7 @@ with col_item:
 
 prices_df = get_prices_df(UNIQUENAME[item])
 
-st.write(prices_df,use_container_width=True)
+st.dataframe(prices_df,use_container_width=True)
 
 
 
