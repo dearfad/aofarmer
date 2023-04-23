@@ -38,6 +38,7 @@ types = prices_df['type'].unique()
 type = st.multiselect('类别',types,types[0])
 
 columns = list(prices_df.columns)
+st.write(columns)
 column = st.multiselect('显示',columns,['Name_CN','Tier','city','enchantment','quality','sell_price_min','sell_price_min_date','buy_price_max','buy_price_max_date','timestamp_24','avg_price_24','item_count_24'])
 
 
