@@ -25,7 +25,7 @@ def get_prices(itemlist):
             for enchantment in range(0,5):
                 if len(query[n] + ','+ f'T{tier}_{item}@{enchantment}')>1800:
                     n = n+1
-                    query[n] = ''
+                    query.append('')
                 if enchantment == 0:
                     query[n] = query[n] + ','+ f'T{tier}_{item}' 
                 else:
