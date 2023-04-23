@@ -36,25 +36,19 @@ prices_df = get_prices_df(UNIQUENAME[item])
 columns = list(prices_df.columns)
 column = st.multiselect('column',columns,columns)
 
+types = prices_df['type'].unique()
+type = st.multiselect('Name',types,types)
 
 
 view_df = prices_df.loc[
     (prices_df['city'].isin(city)) & 
     (prices_df['Tier'].isin(tier)) & 
     (prices_df['quality'].isin(quality)) &
-    (prices_df['enchantment'].isin(enchantment)) 
+    (prices_df['enchantment'].isin(enchantment)) &
+    (prices_df['type'].isin(type)) 
 ]
 
-names = view_df['Name_CN'].unique()
-x = []
-for n in names:
-    x.append(n.split('级')[1])
-xx = tuple(x)
-name = st.multiselect('Name',xx,xx)
-print_df = view_df.loc[prices_df['Name_CN'].isin(name)]
-
-
-st.dataframe(print_df[column],use_container_width=True)
+st.dataframe(view_df[column],use_container_width=True)
 
 
 
