@@ -30,7 +30,7 @@ with col_city:
 
 prices_df = get_prices_df(UNIQUENAME[item])
 
-view_df = prices_df.loc[prices_df['city'].isin(city) & prices_df['Tier'].isin(tier) & prices_df['quality'].isin(quality)]
+view_df = prices_df.loc[(prices_df['city'].isin(city)) & (prices_df['Tier'].isin(tier)) & (prices_df['quality'].isin(quality))]
 
 st.dataframe(view_df,use_container_width=True)
 
