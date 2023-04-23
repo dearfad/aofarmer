@@ -23,19 +23,7 @@ prices = get_prices(UNIQUENAME[item])
 
 st.write(prices)
 
-# item_id = id_dict[id]
 
-# item_list = ['BAG', 'BAG_INSIGHT']
-# bag_list = 'T2_BAG,T3_BAG'
-# for item in item_list:
-#     for tier in range(4,9):
-#         bag_list = bag_list + ','+ f'T{tier}_{item}' 
-# search_url = api_url + 'prices/' + bag_list + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon'
-# st.write(len(search_url))
-# st.write(search_url)
-# r = requests.get(search_url)
-# prices = pd.DataFrame(r.json())
-# st.write(prices)
 
     # cities = ['Caerleon','Bridgewatch','Lymhurst','Fort Sterling','Thetford','Martlock']
     # cols_prices = st.columns(len(cities))
