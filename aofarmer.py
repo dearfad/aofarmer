@@ -23,13 +23,13 @@ with col_tier:
     tier = st.multiselect('tier',tiers,['T4'])
 with col_quality:
     qualites = [1,2,3,4,5]
-    quality = st.multiselect('quality',qualites,qualites)
+    quality = st.multiselect('quality',qualites,[1])
 with col_city:
     cities = ['Caerleon','Bridgewatch','Lymhurst','Fort Sterling','Thetford','Martlock']
-    city = st.multiselect('city',cities,cities)
+    city = st.multiselect('city',cities,['Caerleon'])
 with col_enchantment:
     enchantments = ['0','1','2','3','4']
-    enchantment = st.multiselect('enchantment',enchantments,enchantments)
+    enchantment = st.multiselect('enchantment',enchantments,['0'])
 
 prices_df = get_prices_df(UNIQUENAME[item])
 
