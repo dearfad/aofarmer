@@ -36,7 +36,7 @@ prices_df = get_prices_df(UNIQUENAME[item])
 columns = list(prices_df.columns)
 column = st.multiselect('column',columns,columns)
 
-names = prices_df['Name_CN'].unique()
+names = prices_df['Name_CN'].unique().split('级')[0]
 name = st.multiselect('Name',names,names)
 
 view_df = prices_df.loc[
