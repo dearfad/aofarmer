@@ -42,7 +42,8 @@ def get_prices_df(itemlist):
     prices_df['Name_CN'] = prices_df['item_id'].apply(lambda x:item_ids.loc[item_ids['UniqueName']==x, 'Name_CN'].values[0])
     prices_df['Tier'] = prices_df['item_id'].apply(lambda x:x.split('_')[0])
     prices_df['enchantment'] = prices_df['item_id'].apply(lambda x:x.split('@')[1] if '@' in x else '0')
-    columns =["Name_CN","Tier","item_id","city","enchantment","quality","sell_price_min","sell_price_min_date","sell_price_max","sell_price_max_date","buy_price_min",
+    prices_df['type'] = prices_df['Name_CN'].apply(lambda x:x.split('级')[1])
+    columns =["Name_CN","Tier","item_id","city","enchantment","quality","type","sell_price_min","sell_price_min_date","sell_price_max","sell_price_max_date","buy_price_min",
             "buy_price_min_date","buy_price_max","buy_price_max_date"]
     prices_df = prices_df.reindex(columns=columns)
     return prices_df
