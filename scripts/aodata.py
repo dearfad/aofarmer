@@ -47,14 +47,12 @@ def get_prices(itemlist):
     
     prices['mergekey'] = prices['item_id'].map(str) + '-' + prices['city'].map(str) + '-' + prices['quality'].map(str)
     history['mergekey'] = history['item_id'].map(str) + '-' + history['location'].map(str) + '-' + history['quality'].map(str)
-    st.write(prices.head(5))
-    st.write(history.head(5))
     prices = prices.merge(history, how='left', on='mergekey')
     prices.drop(['mergekey','location','item_id_y','quality_y'],axis=1, inplace=True)
     prices.rename(columns={'item_id_x': 'item_id', 'quality_x': 'quality'}, inplace=True)
-    prices['history'] = prices['data'].apply(lambda x:x if x else '0')
-    st.write(prices.head(5))
-        
+    st.write(prices.data.loc[0])
+    # prices['history'] = prices['data'].apply(lambda x:x if x else '0')
+    st.write(prices.head(5))        
     return prices
 
 def get_prices_df(itemlist):
