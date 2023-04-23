@@ -19,9 +19,9 @@ with col_category:
 with col_item:
     item = st.selectbox('ID', CATEGORY[category])
 
-prices = get_prices(UNIQUENAME[item])
+prices_df = get_prices_df(UNIQUENAME[item])
 
-st.write(prices)
+st.write(prices_df)
 
 
 
