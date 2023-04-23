@@ -11,7 +11,7 @@ api_url = "https://east.albion-online-data.com/api/v2/stats/"
 item_ids_url = 'https://raw.githubusercontent.com/ao-data/ao-bin-dumps/master/formatted/items.json'
 
 @st.cache_data
-def read_items_info():
+def read_item_ids():
     ao_bin_dumps = pd.read_json(item_ids_url)
     item_ids = pd.DataFrame()
     item_ids['UniqueName'] = ao_bin_dumps['UniqueName']
@@ -21,7 +21,7 @@ def read_items_info():
     item_ids['Description_EN'] = ao_bin_dumps['LocalizedDescriptions'].apply(lambda x:x["EN-US"] if x else '')
     return item_ids
 
-item_ids = read_items_info()
+item_ids = read_item_ids()
 
 st.write(item_ids)
 
@@ -94,19 +94,19 @@ with col_item:
     item = st.selectbox('ITEM', item_dict[id])
 
 
-# item_id = id_dict[id]
+item_id = id_dict[id]
 
-# item_list = ['BAG', 'BAG_INSIGHT']
-# bag_list = 'T2_BAG,T3_BAG'
-# for item in item_list:
-#     for tier in range(4,9):
-#         bag_list = bag_list + ','+ f'T{tier}_{item}' 
-# search_url = api_url + 'prices/' + bag_list + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon'
-# st.write(len(search_url))
-# st.write(search_url)
-# r = requests.get(search_url)
-# prices = pd.DataFrame(r.json())
-# st.write(prices)
+item_list = ['BAG', 'BAG_INSIGHT']
+bag_list = 'T2_BAG,T3_BAG'
+for item in item_list:
+    for tier in range(4,9):
+        bag_list = bag_list + ','+ f'T{tier}_{item}' 
+search_url = api_url + 'prices/' + bag_list + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon'
+st.write(len(search_url))
+st.write(search_url)
+r = requests.get(search_url)
+prices = pd.DataFrame(r.json())
+st.write(prices)
 
     # cities = ['Caerleon','Bridgewatch','Lymhurst','Fort Sterling','Thetford','Martlock']
     # cols_prices = st.columns(len(cities))
