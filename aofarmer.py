@@ -21,11 +21,12 @@ with col_item:
 
 prices_df = get_prices_df(UNIQUENAME[item])
 
+cities = ['Caerleon','Bridgewatch','Lymhurst','Fort Sterling','Thetford','Martlock']
+city = st.multiselect('city',cities)
 st.dataframe(prices_df,use_container_width=True)
 
 
 
-    # cities = ['Caerleon','Bridgewatch','Lymhurst','Fort Sterling','Thetford','Martlock']
     # cols_prices = st.columns(len(cities))
     # for i, city in enumerate(cities):
     #     with cols_prices[i]:
