@@ -47,10 +47,10 @@ view_df = prices_df.loc[
 
 names = view_df['Name_CN'].unique()
 name = st.multiselect('Name',names,names)
-view_df = view_df.loc[prices_df['Name_CN'].isin(name)]
+print_df = view_df.loc[prices_df['Name_CN'].isin(name)]
 
 
-st.dataframe(view_df[column],use_container_width=True)
+st.dataframe(print_df[column],use_container_width=True)
 
 
 
