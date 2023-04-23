@@ -42,15 +42,13 @@ def get_prices(itemlist):
         history_url = api_url + 'history/' + q + '.json?locations=Bridgewatch,Lymhurst,Fort Sterling,Thetford,Martlock,Caerleon&time-scale=24'
         r = requests.get(history_url)
         history = pd.DataFrame(r.json())
-        st.write(history.loc[0,'data'])
+        st.write(history)
         
     return prices
 
 def get_prices_df(itemlist):
     prices_df = get_prices(itemlist)
     item_ids = read_item_ids()
-    # st.write(item_ids.loc[item_ids['UniqueName']=='T4_BAG', 'Name_CN'].values[0])
-    # prices_df['Name_CN'] = prices_df['item_id'].apply(lambda x:item_ids.loc[item_ids['UniqueName']==x, 'Name_CN'][0])
     prices_df['Name_CN'] = prices_df['item_id'].apply(lambda x:item_ids.loc[item_ids['UniqueName']==x, 'Name_CN'].values[0])
     prices_df['Tier'] = prices_df['item_id'].apply(lambda x:x.split('_')[0])
     prices_df['enchantment'] = prices_df['item_id'].apply(lambda x:x.split('@')[1] if '@' in x else '0')
