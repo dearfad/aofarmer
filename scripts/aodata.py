@@ -17,6 +17,7 @@ def read_item_ids():
     item_ids['Description_EN'] = ao_bin_dumps['LocalizedDescriptions'].apply(lambda x:x["EN-US"] if x else '')
     return item_ids
 
+@st.cache(show_spinner=True, suppress_st_warning=False, ttl=600.0)
 def get_prices(itemlist):
     query = [f'T2_{itemlist[0]},T3_{itemlist[0]}']
     n=0
