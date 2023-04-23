@@ -39,5 +39,5 @@ def get_prices_df(itemlist):
     st.write(list(prices_df.columns))
     columns =["Name_CN","Tier","item_id","city","quality","sell_price_min","sell_price_min_date","sell_price_max","sell_price_max_date","buy_price_min",
             "buy_price_min_date","buy_price_max","buy_price_max_date"]
-    prices.reindex(columns=columns)
+    prices_df.reindex(columns=columns)
     return prices_df
