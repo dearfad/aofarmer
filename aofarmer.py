@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import requests
 from scripts.category import CATEGORY, UNIQUENAME
-from scripts.aodata import read_item_ids, get_prices
+from scripts.aodata import read_item_ids, get_prices_df
 
 st.set_page_config(page_title='Albion Online Farmer', page_icon='👨‍🌾', layout="wide")
 
