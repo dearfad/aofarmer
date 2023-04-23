@@ -46,7 +46,7 @@ view_df = prices_df.loc[
 ]
 
 names = view_df['Name_CN'].unique()
-x = ()
+x = []
 for n in names:
     x.append(n.split('级')[1])
 xx = tuple(x)
