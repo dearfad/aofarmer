@@ -35,4 +35,5 @@ def get_prices_df(itemlist):
     # st.write(item_ids.loc[item_ids['UniqueName']=='T4_BAG', 'Name_CN'].values[0])
     # prices_df['Name_CN'] = prices_df['item_id'].apply(lambda x:item_ids.loc[item_ids['UniqueName']==x, 'Name_CN'][0])
     prices_df['Name_CN'] = prices_df['item_id'].apply(lambda x:item_ids.loc[item_ids['UniqueName']==x, 'Name_CN'].values[0])
+    prices_df['Tier'] = prices_df['item_id'].apply(lambda x:x.split('_')[0])
     return prices_df
