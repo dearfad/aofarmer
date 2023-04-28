@@ -15,6 +15,9 @@ def read_item_ids():
     item_ids['Description_EN'] = ao_bin_dumps['LocalizedDescriptions'].apply(lambda x:x["EN-US"] if x else '')
     return item_ids
 
+def get_aodata(api_url, pricetype, query, location, timescale):
+    return
+
 
 @st.cache_data(show_spinner=False,ttl=600.0)
 def get_prices(api_url, itemlist):
