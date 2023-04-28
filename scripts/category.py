@@ -5,7 +5,7 @@ CATEGORY = {
     # '神器': [],
     # '城市资源': [],
     # '消耗品': [],
-    # '农耕品': [],
+    '农耕品': ['动物','种子'],
     # '家具': [],
     # '采集装备': [],
     # '工人': [],
@@ -58,5 +58,9 @@ UNIQUENAME = {
     '布甲': ['ARMOR_CLOTH_SET1','ARMOR_CLOTH_SET2','ARMOR_CLOTH_SET3','ARMOR_CLOTH_KEEPER','ARMOR_CLOTH_HELL','ARMOR_CLOTH_MORGANA',
             'ARMOR_CLOTH_FEY','ARMOR_CLOTH_AVALON','ARMOR_CLOTH_ROYAL'],
     
+    # 农耕品
+    '动物': ['FARM_OX_BABY','FARM_OX_GROWN'],
+    '种子': ['FARM_CARROT_SEED','FARM_BEAN_SEED','FARM_WHEAT_SEED'],
+
     '自然法杖': ['MAIN_NATURESTAFF','2H_NATURESTAFF','2H_WILDSTAFF','MAIN_NATURESTAFF_KEEPER'],
 }
