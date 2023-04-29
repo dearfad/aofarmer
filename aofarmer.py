@@ -72,20 +72,3 @@ view_df = prices_df.loc[
 ]
 
 st.dataframe(view_df[column], use_container_width=True)
-
-# cols_prices = st.columns(len(cities))
-# for i, city in enumerate(cities):
-#     with cols_prices[i]:
-#         sell_min_price = int(prices.loc[prices['city']==city, 'sell_price_min'])
-#         buy_max_price =  int(prices.loc[prices['city']==city, 'buy_price_max'])
-#         if sell_min_price == 0 or buy_max_price == 0:
-#             diff_price = None
-#         else:
-#             diff_price = buy_max_price-sell_min_price
-#         st.metric(f':classical_building: **{city}**', sell_min_price, diff_price)
-
-#     history_hour_url = api_url + 'history/' + item_id + '.json?time-scale=1'
-#     r_history_hour = requests.get(history_hour_url)
-#     history_hour = pd.DataFrame(r_history_hour.json())
-
-

@@ -19,7 +19,7 @@ def get_aodata(api_url, pricetype, query, location, timescale):
     return
 
 
-@st.cache_data(show_spinner=False,ttl=600.0)
+# @st.cache_data(show_spinner=False,ttl=600.0)
 def get_prices(api_url, itemlist):
     if itemlist[0] in ['BAG','CAPE','ARMOR_CLOTH_SET1']:
         query = [f'T2_{itemlist[0]},T3_{itemlist[0]}']
