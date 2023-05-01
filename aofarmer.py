@@ -22,7 +22,7 @@ st.write(item_ids)
 location_ids = get_location_ids()
 st.write(location_ids)
 
-st.write(f"*️⃣ **Item IDs: {item_ids.shape[0]} ➖ Location IDs: {location_ids.shape[0]} ➖ 👨‍💼 By: DEARFAD** ➖**")
+st.write(f"**️ ➖ Item IDs: {item_ids.shape[0]} ➖ Location IDs: {location_ids.shape[0]} ➖ 👨‍💼 By: DEARFAD ➖ **")
 
 
 # col_server, col_category, col_sub_category = st.columns(3)
