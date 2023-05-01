@@ -41,5 +41,6 @@ def get_item_ids():
     item_ids["Description_EN"] = item_ids["LocalizedDescriptions"].apply(
         lambda x: x["EN-US"] if x else ""
     )
-    item_ids.drop(['LocalizedNames','LocalizedDescriptions'],axis=1, inplace=True)
+    st.write(item_ids.columns)
+    # item_ids.drop(['LocalizedNames','LocalizedDescriptions'],axis=1, inplace=True)
     return item_ids
