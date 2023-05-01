@@ -23,6 +23,7 @@ st.write(
 
 server = st.selectbox("服务器", ["east", "west"])
 st.dataframe(get_prices(server=server, itemlist=["T5_BAG", "T6_BAG"]), use_container_width=True)
+st.dataframe(location_ids, use_container_width=True)
 
 # col_server, col_category, col_sub_category = st.columns(3)
 
