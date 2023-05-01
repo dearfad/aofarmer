@@ -27,7 +27,7 @@ Location_IDs_Url = (
 
 
 @st.cache_data(ttl=86400, show_spinner="Caching Item IDs Every 24 Hours...")
-def get_item_ids():
+def get_ids():
     item_ids = pd.read_json(Item_IDs_Url)
     item_ids["Name_CN"] = item_ids["LocalizedNames"].apply(
         lambda x: x["ZH-CN"] if x else ""
@@ -52,10 +52,7 @@ def get_item_ids():
         axis=1,
         inplace=True,
     )
-    return item_ids
 
-
-@st.cache_data(ttl=86400, show_spinner="Caching Item IDs Every 24 Hours...")
-def get_location_ids():
     location_ids = pd.read_json(Location_IDs_Url)
-    return location_ids
+
+    return item_ids, location_ids

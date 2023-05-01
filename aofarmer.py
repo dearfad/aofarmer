@@ -8,17 +8,17 @@ import streamlit as st
 
 # from scripts.category import CATEGORY, UNIQUENAME
 # from scripts.aofcore import read_item_ids, get_prices_df
-from scripts.aodata import get_item_ids, get_location_ids
-
+from scripts.aodata import get_ids
 
 st.set_page_config(page_title="Albion Online Farmer", page_icon="👨‍🌾", layout="wide")
 
 st.write("# Albion Online Farmer! 👨‍🌾")
 
 
-item_ids = get_item_ids()
-location_ids = get_location_ids()
-st.write(f"➖ **Item IDs: {item_ids.shape[0]}** ➖ **Location IDs: {location_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖ ")
+item_ids, location_ids = get_ids()
+st.write(
+    f"➖ **Item IDs: {item_ids.shape[0]}** ➖ **Location IDs: {location_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖ "
+)
 
 
 # col_server, col_category, col_sub_category = st.columns(3)
