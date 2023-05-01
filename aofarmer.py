@@ -22,7 +22,7 @@ st.write(
     f"➖ **Item IDs: {item_ids.shape[0]}** ➖ **Location IDs: {location_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖ "
 )
 
-st.write(get_prices(itemlist=['T4_BAG,T5_BAG']))
+st.write(get_prices(itemlist=['T4_BAG','T5_BAG']))
 
 # col_server, col_category, col_sub_category = st.columns(3)
 
