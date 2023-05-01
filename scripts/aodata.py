@@ -55,8 +55,6 @@ def get_ids():
 
 
 def get_prices(server='east', itemlist='T4_BAG', format='json'):
-    query = f'https://{server}.albion-online-data.com/api/v2/stats/Prices/{itemlist}.{format}'
-    st.write(query)
-    r = requests.get(query)
+    r = requests.get(f'https://{server}.albion-online-data.com/api/v2/stats/Prices/{itemlist}.{format}')
     prices = pd.DataFrame(r.json())
     return prices
