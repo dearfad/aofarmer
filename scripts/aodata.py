@@ -11,12 +11,6 @@ import streamlit as st
 import requests
 import pandas as pd
 
-# API Host URLs
-API_Url = {
-'West_Server_Url': 'https://west.albion-online-data.com',
-'East_Server_Url' : 'https://east.albion-online-data.com',
-}
-
 # Item IDs
 Item_IDs_Url = (
     "https://raw.githubusercontent.com/ao-data/ao-bin-dumps/master/formatted/items.json"
@@ -60,7 +54,8 @@ def get_ids():
     return item_ids, location_ids
 
 
-def get_prices(server, itemlist):
-    query = 
-    # /api/v2/stats/Prices/{itemList}.{format})
-    return
+def get_prices(server, itemlist='T4_BAG', format='.json'):
+    query = f'https://{server}.albion-online-data.com/api/v2/stats/Prices/{itemlist}.{format})'
+    r = requests.get(query)
+    prices = pd.DataFrame(r.json())
+    return prices
