@@ -41,6 +41,21 @@ def get_item_ids():
     item_ids["Description_EN"] = item_ids["LocalizedDescriptions"].apply(
         lambda x: x["EN-US"] if x else ""
     )
-    st.write(item_ids.columns)
-    # item_ids.drop(['LocalizedNames','LocalizedDescriptions'],axis=1, inplace=True)
+    item_ids.drop(
+        [
+            "LocalizationNameVariable",
+            "LocalizationDescriptionVariable",
+            "LocalizedNames",
+            "LocalizedDescriptions",
+            "Index",
+        ],
+        axis=1,
+        inplace=True,
+    )
     return item_ids
+
+
+@st.cache_data(ttl=86400, show_spinner="Caching Item IDs Every 24 Hours...")
+def get_location_ids():
+    location_ids = pd.read_json(Location_IDs_Url)
+    return location_ids
