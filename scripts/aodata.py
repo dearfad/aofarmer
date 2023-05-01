@@ -17,17 +17,17 @@ East_Server_Url = "https://east.albion-online-data.com"
 
 # Item IDs
 Item_IDs_Url = (
-    "https://github.com/ao-data/ao-bin-dumps/blob/master/formatted/items.json"
+    "https://raw.githubusercontent.com/ao-data/ao-bin-dumps/master/formatted/items.json"
 )
 
 # Location IDs
 Location_IDs_Url = (
-    "https://github.com/ao-data/ao-bin-dumps/blob/master/formatted/world.json"
+    "https://raw.githubusercontent.com/ao-data/ao-bin-dumps/master/formatted/world.json"
 )
 
 
 @st.cache_data(ttl=86400, show_spinner="Caching Item IDs Every 24 Hours...")
-def get_item_ids():    
+def get_item_ids():
     item_ids = pd.read_json(Item_IDs_Url)
     item_ids["Name_CN"] = item_ids["LocalizedNames"].apply(
         lambda x: x["ZH-CN"] if x else ""
