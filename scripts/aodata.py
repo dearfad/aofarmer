@@ -12,8 +12,10 @@ import requests
 import pandas as pd
 
 # API Host URLs
-West_Server_Url = "https://west.albion-online-data.com"
-East_Server_Url = "https://east.albion-online-data.com"
+API_Url = {
+'West_Server_Url': 'https://west.albion-online-data.com',
+'East_Server_Url' : 'https://east.albion-online-data.com',
+}
 
 # Item IDs
 Item_IDs_Url = (
@@ -56,3 +58,9 @@ def get_ids():
     location_ids = pd.read_json(Location_IDs_Url)
 
     return item_ids, location_ids
+
+
+def get_prices(server, itemlist):
+    query = 
+    # /api/v2/stats/Prices/{itemList}.{format})
+    return
