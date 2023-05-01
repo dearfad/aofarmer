@@ -21,7 +21,7 @@ st.write(
     f"➖ **Item IDs: {item_ids.shape[0]}** ➖ **Location IDs: {location_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖ "
 )
 
-st.write(get_prices(itemlist=["T5_BAG", "T6_BAG"]), use_container_width=True)
+st.dataframe(get_prices(itemlist=["T5_BAG", "T6_BAG"]), use_container_width=True)
 
 # col_server, col_category, col_sub_category = st.columns(3)
 
