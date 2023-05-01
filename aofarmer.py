@@ -1,6 +1,10 @@
+"""
+Filename: aofarmer.py
+Author: dearfad
+Contact: dearfad@sina.com
+"""
+
 import streamlit as st
-import pandas as pd
-import requests
 from scripts.category import CATEGORY, UNIQUENAME
 from scripts.aofcore import read_item_ids, get_prices_df
 
