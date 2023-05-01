@@ -54,7 +54,7 @@ def get_ids():
     return item_ids, location_ids
 
 
-def get_prices(server='east', itemlist='T4_BAG', format='.json'):
+def get_prices(server='east', itemlist='T4_BAG', format='json'):
     query = f'https://{server}.albion-online-data.com/api/v2/stats/Prices/{itemlist}.{format})'
     st.write(query)
     r = requests.get(query)
