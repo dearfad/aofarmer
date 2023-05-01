@@ -1,16 +1,16 @@
 CATEGORY = {
-    '配件': ['背包', '披风'],
-    '护甲': ['布甲'],
+    "配件": ["背包", "披风"],
+    "护甲": ["布甲"],
     # '护甲': ['布甲','布帽','布鞋','皮甲','皮帽','皮鞋','板甲','板甲头盔','板甲长靴','稀有护甲','稀有头盔','稀有鞋子'],
     # '神器': [],
     # '城市资源': [],
     # '消耗品': [],
-    '农耕品': ['动物', '种子'],
+    "农耕品": ["动物", "种子"],
     # '家具': [],
     # '采集装备': [],
     # '工人': [],
     # '奢侈品': [],
-    '法术武器': ['自然法杖'],
+    "法术武器": ["自然法杖"],
     # '法术武器': ['奥术法杖', '自然法杖'],
     # '基本材料': [],
     # '近战武器': [],
@@ -52,13 +52,39 @@ CATEGORY = {
 # }
 
 UNIQUENAME = {
-    '背包': ['BAG', 'BAG_INSIGHT'],
-    '披风': ['CAPE', 'CAPEITEM_FW_BRIDGEWATCH', 'CAPEITEM_FW_FORTSTERLING', 'CAPEITEM_FW_LYMHURST', 'CAPEITEM_FW_MARTLOCK',           'CAPEITEM_FW_THETFORD', 'CAPEITEM_FW_CAERLEON', 'CAPEITEM_HERETIC', 'CAPEITEM_UNDEAD', 'CAPEITEM_KEEPER', 'CAPEITEM_MORGANA', 'CAPEITEM_DEMON'],
-    '布甲': ['ARMOR_CLOTH_SET1', 'ARMOR_CLOTH_SET2', 'ARMOR_CLOTH_SET3', 'ARMOR_CLOTH_KEEPER', 'ARMOR_CLOTH_HELL', 'ARMOR_CLOTH_MORGANA',           'ARMOR_CLOTH_FEY', 'ARMOR_CLOTH_AVALON', 'ARMOR_CLOTH_ROYAL'],
-
+    "背包": ["BAG", "BAG_INSIGHT"],
+    "披风": [
+        "CAPE",
+        "CAPEITEM_FW_BRIDGEWATCH",
+        "CAPEITEM_FW_FORTSTERLING",
+        "CAPEITEM_FW_LYMHURST",
+        "CAPEITEM_FW_MARTLOCK",
+        "CAPEITEM_FW_THETFORD",
+        "CAPEITEM_FW_CAERLEON",
+        "CAPEITEM_HERETIC",
+        "CAPEITEM_UNDEAD",
+        "CAPEITEM_KEEPER",
+        "CAPEITEM_MORGANA",
+        "CAPEITEM_DEMON",
+    ],
+    "布甲": [
+        "ARMOR_CLOTH_SET1",
+        "ARMOR_CLOTH_SET2",
+        "ARMOR_CLOTH_SET3",
+        "ARMOR_CLOTH_KEEPER",
+        "ARMOR_CLOTH_HELL",
+        "ARMOR_CLOTH_MORGANA",
+        "ARMOR_CLOTH_FEY",
+        "ARMOR_CLOTH_AVALON",
+        "ARMOR_CLOTH_ROYAL",
+    ],
     # 农耕品
-    '动物': ['FARM_OX_BABY', 'FARM_OX_GROWN'],
-    '种子': ['FARM_CARROT_SEED', 'FARM_BEAN_SEED', 'FARM_WHEAT_SEED'],
-
-    '自然法杖': ['MAIN_NATURESTAFF', '2H_NATURESTAFF', '2H_WILDSTAFF', 'MAIN_NATURESTAFF_KEEPER'],
+    "动物": ["FARM_OX_BABY", "FARM_OX_GROWN"],
+    "种子": ["FARM_CARROT_SEED", "FARM_BEAN_SEED", "FARM_WHEAT_SEED"],
+    "自然法杖": [
+        "MAIN_NATURESTAFF",
+        "2H_NATURESTAFF",
+        "2H_WILDSTAFF",
+        "MAIN_NATURESTAFF_KEEPER",
+    ],
 }
