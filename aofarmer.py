@@ -17,11 +17,7 @@ st.write("# Albion Online Farmer! 👨‍🌾")
 
 
 item_ids = get_item_ids()
-st.write(item_ids)
-
 location_ids = get_location_ids()
-st.write(location_ids)
-
 st.write(f"**️ ➖ Item IDs: {item_ids.shape[0]} ➖ Location IDs: {location_ids.shape[0]} ➖ 👨‍💼 By: DEARFAD ➖ **")
 
 
