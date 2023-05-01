@@ -11,7 +11,6 @@ import streamlit as st
 from scripts.aodata import get_ids, get_prices
 
 
-
 st.set_page_config(page_title="Albion Online Farmer", page_icon="👨‍🌾", layout="wide")
 
 st.write("# Albion Online Farmer! 👨‍🌾")
@@ -22,7 +21,7 @@ st.write(
     f"➖ **Item IDs: {item_ids.shape[0]}** ➖ **Location IDs: {location_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖ "
 )
 
-st.write(get_prices(itemlist=['T5_BAG','T6_BAG']))
+st.write(get_prices(itemlist=["T5_BAG", "T6_BAG"]), use_container_width=True)
 
 # col_server, col_category, col_sub_category = st.columns(3)
 
