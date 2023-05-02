@@ -21,8 +21,11 @@ st.write(
     f"➖ **Item IDs: {item_ids.shape[0]}** ➖ **Location IDs: {location_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖ "
 )
 
-server = st.selectbox("服务器", ["east", "west"])
-itemlist = st.text_input('模糊搜索：', item_ids['UniqueName'].tolist())
+col_server, col_select = st.columns(2)
+with col_server:
+    server = st.selectbox("服务器", ["east", "west"])
+with col_select:
+    itemlist = st.selectbox('选择：', item_ids['UniqueName'].tolist())
 
 st.dataframe(get_prices(server=server, itemlist=itemlist), use_container_width=True)
 # st.dataframe(location_ids, use_container_width=True)
