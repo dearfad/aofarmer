@@ -22,8 +22,7 @@ st.write(
 )
 
 server = st.selectbox("服务器", ["east", "west"])
-st.write(item_ids)
-itemlist = st.text_input('模糊搜索：', item_ids[''])
+itemlist = st.text_input('模糊搜索：', item_ids['UniqueName'])
 
 st.dataframe(get_prices(server=server, itemlist=itemlist), use_container_width=True)
 # st.dataframe(location_ids, use_container_width=True)
