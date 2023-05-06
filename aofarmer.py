@@ -21,6 +21,8 @@ st.write(
     f"➖ **Item IDs: {item_ids.shape[0]}** ➖ **Location IDs: {location_ids.shape[0]}** ➖ 👨‍💼 **By: DEARFAD** ➖ "
 )
 
+st.write(item_ids)
+
 col_server, col_select = st.columns(2)
 with col_server:
     server = st.selectbox("服务器", ["east", "west"])
