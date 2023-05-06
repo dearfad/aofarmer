@@ -28,7 +28,7 @@ with col_server:
 with col_select:
     itemlist = st.selectbox('选择：', item_ids['UniqueName'].tolist())
 
-st.write(item_ids.loc[item_ids['UniqueName'==itemlist], 'Name_CN'])
+st.write(item_ids.loc[item_ids['UniqueName']==itemlist, 'Name_CN'])
 st.dataframe(get_prices(server=server, itemlist=itemlist), use_container_width=True)
 # st.dataframe(location_ids, use_container_width=True)
 
